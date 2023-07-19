@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'loginpage.dart';
+import 'package:strong_password_generator/passwordgen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const PasswordGeneratorScreen(),
     );
   }
 }

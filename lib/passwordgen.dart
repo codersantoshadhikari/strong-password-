@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'savescreen.dart';
+
 class PasswordGeneratorScreen extends StatefulWidget {
   const PasswordGeneratorScreen({Key? key}) : super(key: key);
 
@@ -18,6 +20,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   bool includeLowercase = true;
   bool includeNumbers = true;
   bool includeSpecialCharacters = true;
+  List<String> savedPasswords = []; // List to hold all the saved passwords
 
   final TextEditingController _lengthController = TextEditingController();
 
@@ -56,10 +59,22 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
     );
   }
 
-  void saveData() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Data saved successfully')),
-    );
+  void savePassword() {
+    if (generatedPassword.isNotEmpty) {
+      setState(() {
+        savedPasswords.add(
+            generatedPassword); // Add the generated password to the savedPasswords list
+      });
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return SaveScreen(generatedPassword, savedPasswords);
+          },
+        ),
+      );
+    }
   }
 
   @override
@@ -72,21 +87,21 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 95, 74, 81),
+        backgroundColor: const Color.fromARGB(255, 73, 67, 158),
         title: const Center(
           child: Text(
             "Password Generator",
             style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 10, 10, 9)),
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 10, 10, 9),
+            ),
           ),
         ),
       ),
-
-      backgroundColor: const Color.fromARGB(
-          255, 165, 121, 121), // Set the background color to white
+      backgroundColor: const Color.fromARGB(255, 67, 62, 134),
       body: ListView(
+        padding: const EdgeInsets.all(16.0),
         children: [
           const SizedBox(height: 25),
           const Text(
@@ -106,9 +121,9 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
               ElevatedButton(
                 onPressed: copyToClipboard,
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
                   backgroundColor: Colors.teal,
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 ),
                 child: const Text('Copy'),
               ),
@@ -116,18 +131,32 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
               ElevatedButton(
                 onPressed: generatePassword,
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
                   backgroundColor: Colors.blue,
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 ),
                 child: const Text('Generate Password'),
+              ),
+              const SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: savePassword,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                ),
+                child: const Column(
+                  children: [
+                    SizedBox(child: Text('save ')),
+                  ],
+                ),
               ),
             ],
           ),
           const SizedBox(height: 32),
           const Text(
             'Password Length:',
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
           Padding(
@@ -146,6 +175,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                     },
                     style: const TextStyle(
                       fontSize: 16,
+                      fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                     decoration: InputDecoration(
@@ -166,10 +196,13 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           ),
           const Text(
             'Options:',
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           CheckboxListTile(
-            title: const Text('Include Uppercase'),
+            title: const Text(
+              'Include Uppercase',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             value: includeUppercase,
             onChanged: (value) {
               setState(() {
@@ -180,7 +213,10 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           CheckboxListTile(
             title: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text('Include Lowercase'),
+              child: Text(
+                'Include Lowercase',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             value: includeLowercase,
             onChanged: (value) {
@@ -192,7 +228,10 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           CheckboxListTile(
             title: const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text('Include Numbers'),
+              child: Text(
+                'Include Numbers',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             value: includeNumbers,
             onChanged: (value) {
@@ -202,7 +241,10 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
             },
           ),
           CheckboxListTile(
-            title: const Text('Include Special Characters'),
+            title: const Text(
+              'Include Special Characters',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             value: includeSpecialCharacters,
             onChanged: (value) {
               setState(() {
