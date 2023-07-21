@@ -98,8 +98,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -113,8 +113,10 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                       fontFamily: 'Roboto'),
                 ),
               ),
-              Expanded(
-                  flex: 2,
+              SizedBox(
+                // color: Colors.red,
+                height: 200.h,
+                  // flex: 2,
                   child: Padding(
                     padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 10.h),
                     child: Row(
@@ -205,10 +207,11 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                   ),
                 ),
               ),
-              Expanded(
-                  flex: 6,
+              Container(
+                height: 500.h,
+                  color: Colors.amber,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 8.h),
+                    padding: EdgeInsets.only(top: 0.h),
                     child: Container(
                       color: const Color(0xFFF7F8FA),
                       child: Column(
@@ -478,13 +481,13 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                                     .first,
                                                 time: DateFormat('hh:mm a')
                                                     .format(DateTime.now()));
-        
+          
                                         BlocProvider.of<SaveGeneratedDataBloc>(
                                                 context)
                                             .add(SaveNewGeneratedPassword(
                                                 modelListofSavedPassword:
                                                     savedData));
-        
+          
                                         Navigator.pushNamed(context,
                                             Routes.saveGeneratedPassWordScreen);
                                       },
