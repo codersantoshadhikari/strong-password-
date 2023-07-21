@@ -5,8 +5,7 @@ import 'package:strong_password_generator/bloc/save_generated_data_bloc.dart';
 import 'package:strong_password_generator/model/save_password_model.dart';
 
 class SaveScreen extends StatefulWidget {
-  // final String generatedPassword;
-  // final List<String> savedPasswords;
+ 
 
   const SaveScreen({Key? key}) : super(key: key);
 

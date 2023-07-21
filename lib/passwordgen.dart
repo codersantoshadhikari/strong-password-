@@ -106,12 +106,12 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 35.h, left: 25.w, bottom: 0),
+              padding: EdgeInsets.only(top: 40.h, left: 25.w, bottom: 0),
               child: Text(
-                'User OnBoard',
+                'Welcome',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15.sp,
+                    fontSize: 20.sp,
                     fontFamily: 'Roboto'),
               ),
             ),
@@ -125,9 +125,10 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                           flex: 4,
                           child: RichText(
                             text: TextSpan(
-                              text: '\n\nWelcome,\n\n',
                               style: const TextStyle(
-                                  fontSize: 12, color: Colors.black),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                               children: [
                                 TextSpan(
                                     text:
@@ -179,7 +180,9 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                             child: Text(
                                               'Generate',
                                               style: TextStyle(
-                                                  color: Color(0xFF5FA773)),
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color.fromARGB(
+                                                      255, 27, 25, 139)),
                                             ),
                                           )),
                                     ))
@@ -474,16 +477,18 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                               id: generateUniqueId('Pass-'),
                                               generatedPassword:
                                                   generatedPassword,
-                                              date:
-                                                  DateTime.now().toString().split(' ').first,
-                                                  time: DateFormat('hh:mm a').format(DateTime.now())
-                                                  );
-                                                  
-                                      BlocProvider.of<
-                                                  SaveGeneratedDataBloc>(
+                                              date: DateTime.now()
+                                                  .toString()
+                                                  .split(' ')
+                                                  .first,
+                                              time: DateFormat('hh:mm a')
+                                                  .format(DateTime.now()));
+
+                                      BlocProvider.of<SaveGeneratedDataBloc>(
                                               context)
                                           .add(SaveNewGeneratedPassword(
-                                              modelListofSavedPassword: savedData));
+                                              modelListofSavedPassword:
+                                                  savedData));
 
                                       Navigator.pushNamed(context,
                                           Routes.saveGeneratedPassWordScreen);
