@@ -26,6 +26,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
           backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 255, 255, 255)),
         ),
         onPressed: () {
+      
           Navigator.pushNamedAndRemoveUntil(context, Routes.passwordGenerationScreen, (route) => false);
           // Handle button click action here
         },
