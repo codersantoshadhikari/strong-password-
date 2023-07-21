@@ -5,8 +5,6 @@ import 'package:strong_password_generator/bloc/save_generated_data_bloc.dart';
 import 'package:strong_password_generator/model/save_password_model.dart';
 
 class SaveScreen extends StatefulWidget {
- 
-
   const SaveScreen({Key? key}) : super(key: key);
 
   @override
@@ -24,14 +22,12 @@ class _SaveScreenState extends State<SaveScreen> {
     super.dispose();
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo, // Dark blue app bar
+        backgroundColor:
+            const Color.fromARGB(255, 44, 52, 97), // Dark blue app bar
         title: const Text('Saved Passwords',
             style: TextStyle(color: Colors.white)), // White title text
       ),

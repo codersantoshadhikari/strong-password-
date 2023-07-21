@@ -17,6 +17,7 @@ class PasswordGeneratorScreen extends StatefulWidget {
   const PasswordGeneratorScreen({Key? key}) : super(key: key);
 
   @override
+  
   // ignore: library_private_types_in_public_api
   _PasswordGeneratorScreenState createState() =>
       _PasswordGeneratorScreenState();
@@ -30,13 +31,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   bool _isSpecialCharacters = false;
 
   String generatedPassword = 'Ready To Generate Password?';
-  // int passwordLength = 12;
-  // bool includeUppercase = true;
-  // bool includeLowercase = true;
-  // bool includeNumbers = true;
-  // bool includeSpecialCharacters = true;
-  List<String> savedPasswords = []; // List to hold all the saved passwords
-
+  
+  List<String> savedPasswords = []; 
   final TextEditingController _lengthController = TextEditingController();
 
   void generatePassword() {
@@ -53,7 +49,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
       charset += '0123456789';
     }
     if (_isSpecialCharacters) {
-      charset += '!@#\$%^&*()';
+      charset += '.!@#\$%^::,&*()';
     }
 
     String password = '';
