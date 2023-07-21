@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
 
     _imagePositionAnimation = Tween<EdgeInsets>(
@@ -37,13 +37,13 @@ class _SplashScreenState extends State<SplashScreen>
       end: EdgeInsets.only(top: 260.h),
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Interval(0.0, 0.5, curve: Curves.easeInOut),
+      curve: const Interval(0.0, 0.5, curve: Curves.easeInOut),
     ));
 
     _controller.forward(); // Start the first animation
 
     // After 1 second, show the button
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _showButton = true;
       });
@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:
-          Color(0xFF1C0141), // Change this to your desired background color
+          const Color(0xFF1C0141), // Change this to your desired background color
       body: Center(
         child: AnimatedBuilder(
           animation: _controller,
@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
               children: [
                 Positioned(
                   top: _imagePositionAnimation.value.top,
-                  child: Container(
+                  child: SizedBox(
                     width: 270.w, // Set the desired image width
                     height: 270.h, // Set the desired image height
                     child: Image.asset(AppIcons
@@ -82,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
                 if (_showButton)
                   Positioned(
                     top: 550.h,
-                    child: Container(
+                    child: SizedBox(
                       height: 40.h,
                       width: 230.w,
                       child: ElevatedButton(
@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen>
                               borderRadius: BorderRadius.circular(15.r),
                             )),
                             backgroundColor:
-                                MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255))),
+                                MaterialStateProperty.all(const Color.fromARGB(255, 255, 255, 255))),
                         onPressed: () {
                           Navigator.pushNamedAndRemoveUntil(
                               context,
@@ -105,12 +105,12 @@ class _SplashScreenState extends State<SplashScreen>
                           children: [
                             Text("Let's Start Generating",
                                 style: TextStyle(
-                                    color: Color(0xFF1C0141),
+                                    color: const Color(0xFF1C0141),
                                     fontSize: 15.sp,
                                     fontFamily: 'Roboto',
                                     fontWeight: FontWeight.bold)),
                             Icon(FontAwesomeIcons.fingerprint,
-                                size: 25.sp, color: Color(0xFF1C0141))
+                                size: 25.sp, color: const Color(0xFF1C0141))
                           ],
                         ),
                       ),

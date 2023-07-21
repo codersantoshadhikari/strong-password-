@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:strong_password_generator/bloc/save_generated_data_bloc.dart';
-import 'package:strong_password_generator/bloc/save_generated_password_bloc.dart';
 import 'package:strong_password_generator/constants/app_icons.dart';
 import 'package:strong_password_generator/function/generate_unique_id.dart';
 import 'package:strong_password_generator/model/save_password_model.dart';
@@ -25,7 +24,7 @@ class PasswordGeneratorScreen extends StatefulWidget {
 
 class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   double _currentPasswordLength = 8;
-  bool _isLowerCase = false;
+  bool _isLowerCase = true;
   bool _isUpperCase = false;
   bool _isnumbers = false;
   bool _isSpecialCharacters = false;
@@ -86,7 +85,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return SaveScreen();
+            return const SaveScreen();
           },
         ),
       );
@@ -262,6 +261,9 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                             padding: EdgeInsets.symmetric(horizontal: 25.w),
                             child: Container(
                               height: 70.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.r),
+                                  color: Colors.white),
                               child: Row(children: [
                                 Expanded(
                                     flex: 1,
@@ -289,15 +291,15 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                   ),
                                 )
                               ]),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15.r),
-                                  color: Colors.white),
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 25.w),
                             child: Container(
                               height: 70.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.r),
+                                  color: Colors.white),
                               child: Row(children: [
                                 Expanded(
                                     flex: 1,
@@ -325,15 +327,15 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                   ),
                                 )
                               ]),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15.r),
-                                  color: Colors.white),
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 25.w),
                             child: Container(
                               height: 70.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.r),
+                                  color: Colors.white),
                               child: Row(children: [
                                 Expanded(
                                     flex: 1,
@@ -361,15 +363,15 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                   ),
                                 )
                               ]),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15.r),
-                                  color: Colors.white),
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 25.w),
                             child: Container(
                               height: 70.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.r),
+                                  color: Colors.white),
                               child: Row(children: [
                                 Expanded(
                                     flex: 1,
@@ -403,9 +405,6 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                   ),
                                 )
                               ]),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15.r),
-                                  color: Colors.white),
                             ),
                           ),
                           Padding(

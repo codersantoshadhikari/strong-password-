@@ -52,12 +52,12 @@ class SaveGeneratedPasswordModel extends Equatable {
   final String date;
   final String time;
 
-  SaveGeneratedPasswordModel({
+  const SaveGeneratedPasswordModel({
     required this.id,
     required this.generatedPassword,
     required this.date,
     required this.time
-  }) {}
+  });
   SaveGeneratedPasswordModel copyWith({
     String? id,
    String? generatedPassword,

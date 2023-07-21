@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:strong_password_generator/bloc/save_generated_data_bloc.dart';
-import 'package:strong_password_generator/bloc/save_generated_password_bloc.dart';
 import 'package:strong_password_generator/routes/routes_handler.dart';
 import 'package:strong_password_generator/splash_screen/screen/splash_screen.dart';
 

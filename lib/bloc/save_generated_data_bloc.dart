@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:strong_password_generator/enum/password_saved_status.dart';
@@ -7,13 +6,6 @@ import 'package:strong_password_generator/model/save_password_model.dart';
 part 'save_generated_data_event.dart';
 part 'save_generated_data_state.dart';
 
-// class SaveGeneratedDataBloc extends Bloc<SaveGeneratedDataEvent, SaveGeneratedDataState> {
-//   SaveGeneratedDataBloc() : super(SaveGeneratedDataInitial()) {
-//     on<SaveGeneratedDataEvent>((event, emit) {
-//       // TODO: implement event handler
-//     });
-//   }
-// }
 class SaveGeneratedDataBloc
     extends HydratedBloc<SaveGeneratedDataEvent, SaveGeneratedDataState> {
   SaveGeneratedDataBloc()
