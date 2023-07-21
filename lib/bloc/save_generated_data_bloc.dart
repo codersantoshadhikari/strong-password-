@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:strong_password_generator/enum/password_saved_status.dart';
-import 'package:strong_password_generator/model/save_password_model.dart';
+import 'package:nepali_fortify/enum/password_saved_status.dart';
+import 'package:nepali_fortify/model/save_password_model.dart';
 
 part 'save_generated_data_event.dart';
 part 'save_generated_data_state.dart';
@@ -30,8 +30,6 @@ class SaveGeneratedDataBloc
         savedPasswords: List.from(state.savedPasswords)
           ..remove(event.modelListofSavedPassword)));
   }
-
-
 
   @override
   SaveGeneratedDataState? fromJson(Map<String, dynamic> json) {

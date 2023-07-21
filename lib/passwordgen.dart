@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-import 'package:strong_password_generator/bloc/save_generated_data_bloc.dart';
-import 'package:strong_password_generator/constants/app_icons.dart';
-import 'package:strong_password_generator/function/generate_unique_id.dart';
-import 'package:strong_password_generator/model/save_password_model.dart';
-import 'package:strong_password_generator/routes/routes.dart';
+import 'package:nepali_fortify/bloc/save_generated_data_bloc.dart';
+import 'package:nepali_fortify/constants/app_icons.dart';
+import 'package:nepali_fortify/function/generate_unique_id.dart';
+import 'package:nepali_fortify/model/save_password_model.dart';
+import 'package:nepali_fortify/routes/routes.dart';
 
 import 'savescreen.dart';
 
@@ -30,11 +30,6 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   bool _isSpecialCharacters = false;
 
   String generatedPassword = 'Ready To Generate Password?';
-  // int passwordLength = 12;
-  // bool includeUppercase = true;
-  // bool includeLowercase = true;
-  // bool includeNumbers = true;
-  // bool includeSpecialCharacters = true;
   List<String> savedPasswords = []; // List to hold all the saved passwords
 
   final TextEditingController _lengthController = TextEditingController();
@@ -474,16 +469,18 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                               id: generateUniqueId('Pass-'),
                                               generatedPassword:
                                                   generatedPassword,
-                                              date:
-                                                  DateTime.now().toString().split(' ').first,
-                                                  time: DateFormat('hh:mm a').format(DateTime.now())
-                                                  );
-                                                  
-                                      BlocProvider.of<
-                                                  SaveGeneratedDataBloc>(
+                                              date: DateTime.now()
+                                                  .toString()
+                                                  .split(' ')
+                                                  .first,
+                                              time: DateFormat('hh:mm a')
+                                                  .format(DateTime.now()));
+
+                                      BlocProvider.of<SaveGeneratedDataBloc>(
                                               context)
                                           .add(SaveNewGeneratedPassword(
-                                              modelListofSavedPassword: savedData));
+                                              modelListofSavedPassword:
+                                                  savedData));
 
                                       Navigator.pushNamed(context,
                                           Routes.saveGeneratedPassWordScreen);

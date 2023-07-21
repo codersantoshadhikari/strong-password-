@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:strong_password_generator/bloc/save_generated_data_bloc.dart';
-import 'package:strong_password_generator/model/save_password_model.dart';
+import 'package:nepali_fortify/bloc/save_generated_data_bloc.dart';
+import 'package:nepali_fortify/model/save_password_model.dart';
 
 class SaveScreen extends StatefulWidget {
   // final String generatedPassword;
@@ -24,9 +24,6 @@ class _SaveScreenState extends State<SaveScreen> {
     _editingController.dispose();
     super.dispose();
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {

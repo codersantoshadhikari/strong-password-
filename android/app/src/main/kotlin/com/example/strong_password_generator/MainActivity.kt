@@ -1,4 +1,4 @@
-package com.example.strong_password_generator
+package com.example.nepali_fortify
 
 import io.flutter.embedding.android.FlutterActivity
 

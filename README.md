@@ -1,4 +1,4 @@
-# strong_password_generator
+# nepali_fortify
 
 A new Flutter project.
 
