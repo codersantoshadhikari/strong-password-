@@ -1,13 +1,5 @@
 part of 'save_generated_data_bloc.dart';
 
-// abstract class SaveGeneratedDataState extends Equatable {
-//   const SaveGeneratedDataState();
-  
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class SaveGeneratedDataInitial extends SaveGeneratedDataState {}
 class SaveGeneratedDataState extends Equatable {
   const SaveGeneratedDataState(
       {this.savedPasswords = const <SaveGeneratedPasswordModel>[],
