@@ -1,7 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nepali_fortify/constants/app_icons.dart';
 import 'package:nepali_fortify/password_gen/split_widget/password_option/sub-widget/option_row_widget.dart';
+
+import '../../../routes/routes.dart';
 
 class PasswordOptionChooseWidget extends StatefulWidget {
   const PasswordOptionChooseWidget(
@@ -158,7 +163,7 @@ class _PasswordOptionChooseWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.h),
+              padding: EdgeInsets.symmetric(vertical: 15.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -193,11 +198,49 @@ class _PasswordOptionChooseWidgetState
                       backgroundColor:
                           MaterialStateProperty.all(const Color(0xFF4FD1D9)),
                     ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
+                    },
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Text(
+                            'View',
+                            style: TextStyle(color: Color(0xFFFFFFFF)),
+                          ),
+                          SizedBox(width: 5.w),
+                          Icon(
+                            FontAwesomeIcons.eye,
+                            size: 13.sp,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                      ),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xFF4FD1D9)),
+                    ),
                     onPressed: widget.savePassword,
-                    child: const Center(
-                      child: Text(
-                        'Save',
-                        style: TextStyle(color: Color(0xFFFFFFFF)),
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Text(
+                            'Save',
+                            style: TextStyle(color: Color(0xFFFFFFFF)),
+                          ),
+                          SizedBox(width: 5.w),
+                          Icon(
+                            Icons.save,
+                            size: 14.sp,
+                          )
+                        ],
                       ),
                     ),
                   ),
