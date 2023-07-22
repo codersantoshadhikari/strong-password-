@@ -31,7 +31,7 @@ class _SaveScreenState extends State<SaveScreen> {
         title: const Text('Saved Passwords',
             style: TextStyle(color: Colors.white)), // White title text
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 129, 102, 102),
       body: BlocBuilder<SaveGeneratedDataBloc, SaveGeneratedDataState>(
         builder: (context, state) {
           return ListView.builder(
