@@ -16,7 +16,8 @@ class _ButtonWidgetState extends State<ButtonWidget> {
     return SizedBox(
       height: 40.h,
       width: 230.w,
-      child: ElevatedButton(
+      child: 
+      ElevatedButton(
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
