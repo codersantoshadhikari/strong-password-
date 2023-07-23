@@ -163,7 +163,7 @@ class _PasswordOptionChooseWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.h),
+              padding: EdgeInsets.symmetric(vertical: 5.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -196,7 +196,8 @@ class _PasswordOptionChooseWidgetState
                           MaterialStateProperty.all(const Color(0xFF4FD1D9)),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
+                      Navigator.pushNamed(
+                          context, Routes.saveGeneratedPassWordScreen);
                     },
                     child: Center(
                       child: Row(
