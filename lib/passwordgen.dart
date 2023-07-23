@@ -113,11 +113,12 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                 ),
               ),
               SizedBox(
-                // color: Colors.red,
-                height: 200.h,
+                  // color: Colors.red,
+                  height: 200.h,
                   // flex: 2,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 10.h),
+                    padding:
+                        EdgeInsets.only(left: 25.w, right: 25.w, top: 10.h),
                     child: Row(
                       children: [
                         Expanded(
@@ -152,8 +153,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                         height: 150.h,
                                         decoration: const BoxDecoration(
                                             image: DecorationImage(
-                                                image:
-                                                    AssetImage(AppIcons.onlyLogo),
+                                                image: AssetImage(
+                                                    AppIcons.onlyLogo),
                                                 fit: BoxFit.cover),
                                             color: Color(0xFF1C0141),
                                             shape: BoxShape.circle),
@@ -168,11 +169,13 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                                         RoundedRectangleBorder>(
                                                     RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(15.r),
+                                                      BorderRadius.circular(
+                                                          15.r),
                                                 )),
                                                 backgroundColor:
                                                     MaterialStateProperty.all(
-                                                        const Color(0xFFD9F9E1))),
+                                                        const Color(
+                                                            0xFFD9F9E1))),
                                             onPressed: generatePassword,
                                             child: const Center(
                                               child: Text(
@@ -207,7 +210,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                 ),
               ),
               Container(
-                height: 500.h,
+                  height: 500.h,
                   color: Colors.amber,
                   child: Padding(
                     padding: EdgeInsets.only(top: 0.h),
@@ -273,14 +276,16 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                         height: 35.h,
                                       )),
                                   const Expanded(
-                                      flex: 2, child: Text('Include UpperCase')),
+                                      flex: 2,
+                                      child: Text('Include UpperCase')),
                                   Expanded(
                                     flex: 1,
                                     child: Padding(
                                       padding: EdgeInsets.only(right: 5.w),
                                       child: Switch(
                                         activeColor: const Color(0xFF4FD1D9),
-                                        activeTrackColor: const Color(0xFFD9F3F9),
+                                        activeTrackColor:
+                                            const Color(0xFFD9F3F9),
                                         value: _isUpperCase,
                                         onChanged: (newValue) {
                                           setState(() {
@@ -309,14 +314,16 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                         height: 35.h,
                                       )),
                                   const Expanded(
-                                      flex: 2, child: Text('Include LowerCase')),
+                                      flex: 2,
+                                      child: Text('Include LowerCase')),
                                   Expanded(
                                     flex: 1,
                                     child: Padding(
                                       padding: EdgeInsets.only(right: 5.w),
                                       child: Switch(
                                         activeColor: const Color(0xFF4FD1D9),
-                                        activeTrackColor: const Color(0xFFD9F3F9),
+                                        activeTrackColor:
+                                            const Color(0xFFD9F3F9),
                                         value: _isLowerCase,
                                         onChanged: (newValue) {
                                           setState(() {
@@ -352,7 +359,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                       padding: EdgeInsets.only(right: 5.w),
                                       child: Switch(
                                         activeColor: const Color(0xFF4FD1D9),
-                                        activeTrackColor: const Color(0xFFD9F3F9),
+                                        activeTrackColor:
+                                            const Color(0xFFD9F3F9),
                                         value: _isnumbers,
                                         onChanged: (newValue) {
                                           setState(() {
@@ -386,15 +394,17 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                       )),
                                   const Expanded(
                                       flex: 2,
-                                      child: Text('Include Special Characters')),
+                                      child:
+                                          Text('Include Special Characters')),
                                   Expanded(
                                     flex: 1,
                                     child: Padding(
-                                      padding:
-                                          EdgeInsets.only(right: 12.w, left: 2.w),
+                                      padding: EdgeInsets.only(
+                                          right: 12.w, left: 2.w),
                                       child: Switch(
                                         activeColor: const Color(0xFF4FD1D9),
-                                        activeTrackColor: const Color(0xFFD9F3F9),
+                                        activeTrackColor:
+                                            const Color(0xFFD9F3F9),
                                         value: _isSpecialCharacters,
                                         onChanged: (newValue) {
                                           setState(() {
@@ -423,16 +433,17 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                         style: TextStyle(
                                             fontFamily: 'Roboto',
                                             fontWeight: FontWeight.normal,
-                                            fontSize: 12.sp,
+                                            fontSize: 8.sp,
                                             height: 1.3.h)),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10.h),
+                              padding: EdgeInsets.symmetric(vertical: 2.h),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   ElevatedButton(
                                       style: ButtonStyle(
@@ -440,7 +451,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                                   RoundedRectangleBorder>(
                                               RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(8.r),
+                                                BorderRadius.circular(2.r),
                                           )),
                                           backgroundColor:
                                               MaterialStateProperty.all(
@@ -480,21 +491,21 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                                     .first,
                                                 time: DateFormat('hh:mm a')
                                                     .format(DateTime.now()));
-          
+
                                         BlocProvider.of<SaveGeneratedDataBloc>(
                                                 context)
                                             .add(SaveNewGeneratedPassword(
                                                 modelListofSavedPassword:
                                                     savedData));
-          
+
                                         Navigator.pushNamed(context,
                                             Routes.saveGeneratedPassWordScreen);
                                       },
                                       child: const Center(
                                         child: Text(
                                           'Save',
-                                          style:
-                                              TextStyle(color: Color(0xFFFFFFFF)),
+                                          style: TextStyle(
+                                              color: Color(0xFFFFFFFF)),
                                         ),
                                       )),
                                 ],
@@ -505,162 +516,6 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                   )),
             ],
           ),
-        )
-        // ListView(
-        //   padding: const EdgeInsets.all(16.0),
-        //   children: [
-        //     const SizedBox(height: 25),
-        //     const Text(
-        //       'Generated Password:',
-        //       style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-        //     ),
-        //     const SizedBox(height: 16),
-        //     SelectableText(
-        //       generatedPassword,
-        //       style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        //     ),
-        //     const SizedBox(height: 16),
-        //     Row(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       crossAxisAlignment: CrossAxisAlignment.center,
-        //       children: [
-        //         ElevatedButton(
-        //           onPressed: copyToClipboard,
-        //           style: ElevatedButton.styleFrom(
-        //             backgroundColor: Colors.teal,
-        //             padding:
-        //                 const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        //           ),
-        //           child: const Text('Copy'),
-        //         ),
-        //         const SizedBox(width: 16),
-        //         ElevatedButton(
-        //           onPressed: generatePassword,
-        //           style: ElevatedButton.styleFrom(
-        //             backgroundColor: Colors.blue,
-        //             padding:
-        //                 const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        //           ),
-        //           child: const Text('Generate Password'),
-        //         ),
-        //         const SizedBox(width: 16),
-        //         ElevatedButton(
-        //           onPressed: savePassword,
-        //           style: ElevatedButton.styleFrom(
-        //             backgroundColor: Colors.green,
-        //             padding:
-        //                 const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-        //           ),
-        //           child: const Column(
-        //             children: [
-        //               SizedBox(child: Text('save ')),
-        //             ],
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //     const SizedBox(height: 32),
-        //     const Text(
-        //       'Password Length:',
-        //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        //     ),
-        //     const SizedBox(height: 8),
-        //     Padding(
-        //       padding: const EdgeInsets.all(8.0),
-        //       child: Row(
-        //         children: [
-        //           Expanded(
-        //             child: TextField(
-        //               controller: _lengthController,
-        //               keyboardType: TextInputType.number,
-        //               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        //               onChanged: (value) {
-        //                 setState(() {
-        //                   passwordLength = int.tryParse(value) ?? 0;
-        //                 });
-        //               },
-        //               style: const TextStyle(
-        //                 fontSize: 16,
-        //                 fontWeight: FontWeight.bold,
-        //                 color: Colors.black,
-        //               ),
-        //               decoration: InputDecoration(
-        //                 filled: true,
-        //                 fillColor: Colors.white,
-        //                 border: OutlineInputBorder(
-        //                   borderRadius: BorderRadius.circular(8),
-        //                 ),
-        //               ),
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //     const Padding(
-        //       padding: EdgeInsets.all(8.0),
-        //       child: SizedBox(height: 16),
-        //     ),
-        //     const Text(
-        //       'Options:',
-        //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        //     ),
-        //     CheckboxListTile(
-        //       title: const Text(
-        //         'Include Uppercase',
-        //         style: TextStyle(fontWeight: FontWeight.bold),
-        //       ),
-        //       value: includeUppercase,
-        //       onChanged: (value) {
-        //         setState(() {
-        //           includeUppercase = value ?? false;
-        //         });
-        //       },
-        //     ),
-        //     CheckboxListTile(
-        //       title: const Padding(
-        //         padding: EdgeInsets.all(8.0),
-        //         child: Text(
-        //           'Include Lowercase',
-        //           style: TextStyle(fontWeight: FontWeight.bold),
-        //         ),
-        //       ),
-        //       value: includeLowercase,
-        //       onChanged: (value) {
-        //         setState(() {
-        //           includeLowercase = value ?? false;
-        //         });
-        //       },
-        //     ),
-        //     CheckboxListTile(
-        //       title: const Padding(
-        //         padding: EdgeInsets.all(8.0),
-        //         child: Text(
-        //           'Include Numbers',
-        //           style: TextStyle(fontWeight: FontWeight.bold),
-        //         ),
-        //       ),
-        //       value: includeNumbers,
-        //       onChanged: (value) {
-        //         setState(() {
-        //           includeNumbers = value ?? false;
-        //         });
-        //       },
-        //     ),
-        //     CheckboxListTile(
-        //       title: const Text(
-        //         'Include Special Characters',
-        //         style: TextStyle(fontWeight: FontWeight.bold),
-        //       ),
-        //       value: includeSpecialCharacters,
-        //       onChanged: (value) {
-        //         setState(() {
-        //           includeSpecialCharacters = value ?? false;
-        //         });
-        //       },
-        //     ),
-        //     const SizedBox(height: 16),
-        //   ],
-        // ),
-        );
+        ));
   }
 }
