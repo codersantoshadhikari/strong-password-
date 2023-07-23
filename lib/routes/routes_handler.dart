@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:nepali_fortify/home/screen/home_screen.dart';
-import 'package:nepali_fortify/passwordgen.dart';
+import 'package:nepali_fortify/password_gen/screen/passwordgen.dart';
 import 'package:nepali_fortify/routes/routes.dart';
 import 'package:nepali_fortify/savescreen.dart';
 import 'package:nepali_fortify/splash_screen/screen/splash_screen.dart';

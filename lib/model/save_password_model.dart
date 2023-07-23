@@ -1,48 +1,3 @@
-// // ignore_for_file: public_member_api_docs, sort_constructors_first
-// import 'package:equatable/equatable.dart';
-
-// // ignore: must_be_immutable
-// class SaveGeneratedPasswordModel extends Equatable {
-//   final String id;
-//   final String generatedPassword;
-//   final String dateTime;
-
-//   const SaveGeneratedPasswordModel({
-//     required this.id,
-//     required this.generatedPassword,
-//     required this.dateTime,
-//   });
-//   SaveGeneratedPasswordModel copyWith({
-//     String? id,
-//     String? generatedPassword,
-//     String? dateTime,
-//   }) {
-//     return SaveGeneratedPasswordModel(
-//       id: id ?? this.id,
-//       generatedPassword: generatedPassword ?? this.generatedPassword,
-//       dateTime: dateTime ?? this.dateTime,
-//     );
-//   }
-
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'id': id,
-//       'generatedPassword': generatedPassword,
-//       'dateTime': dateTime,
-//     };
-//   }
-
-//   factory SaveGeneratedPasswordModel.fromMap(Map<String, dynamic> map) {
-//     return SaveGeneratedPasswordModel(
-//       id: map['id'] ?? '',
-//       generatedPassword: map['generatedPassword'] ?? '',
-//       dateTime: map['dateTime'] ?? '',
-//     );
-//   }
-
-//   @override
-//   List<Object?> get props => [id, generatedPassword, dateTime];
-// }
 import 'package:equatable/equatable.dart';
 
 // ignore: must_be_immutable
@@ -51,24 +6,28 @@ class SaveGeneratedPasswordModel extends Equatable {
   final String generatedPassword;
   final String date;
   final String time;
+  final List<String>? category;
+
 
   const SaveGeneratedPasswordModel({
     required this.id,
     required this.generatedPassword,
     required this.date,
-    required this.time
+    required this.time, this.category,
   });
   SaveGeneratedPasswordModel copyWith({
     String? id,
    String? generatedPassword,
   String? date,
-  String? time
+  String? time,
+  List<String>? category
   }) {
     return SaveGeneratedPasswordModel(
       id: id ?? this.id,
       generatedPassword: generatedPassword?? this.generatedPassword,
       date: date?? this.date,
-      time: time?? this.time
+      time: time?? this.time,
+      category: category?? this.category
     );
   }
 
@@ -77,7 +36,8 @@ class SaveGeneratedPasswordModel extends Equatable {
       'id': id,
     'generatedPassword':generatedPassword,
     'date':date,
-    'time': time
+    'time': time,
+    'category':category
     };
   }
 
@@ -86,7 +46,10 @@ class SaveGeneratedPasswordModel extends Equatable {
       id: map['id'] ?? '',
      generatedPassword: map['generatedPassword']?? '',
      date: map['date']?? '',
-     time: map['time']?? ''
+     time: map['time']?? '',
+      category: map['category'] != null
+          ? List<String>.from(map['category'])
+          : null,
     );
   }
 
@@ -95,6 +58,7 @@ class SaveGeneratedPasswordModel extends Equatable {
         id,
         generatedPassword,
         date,
-        time
+        time,
+        category
       ];
 }
