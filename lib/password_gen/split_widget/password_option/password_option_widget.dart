@@ -185,9 +185,6 @@ class _PasswordOptionChooseWidgetState
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 150.h,
-                  ),
                   ElevatedButton(
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
