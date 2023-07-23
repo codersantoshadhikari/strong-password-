@@ -163,7 +163,7 @@ class _PasswordOptionChooseWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.h),
+              padding: EdgeInsets.symmetric(vertical: 5.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

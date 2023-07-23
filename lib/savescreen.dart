@@ -168,6 +168,8 @@ class _SaveScreenState extends State<SaveScreen> {
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: SizedBox(
+                                    height: 90,
+                                    width: double.infinity,
                                     child: Padding(
                                       padding: EdgeInsets.all(15.sp),
                                       child: Column(
