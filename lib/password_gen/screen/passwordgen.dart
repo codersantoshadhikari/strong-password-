@@ -46,122 +46,127 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const HeaderWidget(),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 10.h),
-              child: Row(
-                children: [
-                  const Expanded(
-                    flex: 4,
-                    child: DisplayWelcomeWidget(),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: GeneratePasswordWidget(
-                      generatePassword: generatePassword,
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HeaderWidget(),
+          SizedBox(
+              // color: Colors.red,÷
+              height: 220.h,
+              child: Padding(
+                padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 10.h),
+                child: Row(
+                  children: [
+                    const Expanded(
+                      flex: 4,
+                      child: DisplayWelcomeWidget(),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      flex: 3,
+                      child: GeneratePasswordWidget(
+                        generatePassword: generatePassword,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          GeneratedPasswordStringWidget(
-            ongeneratedPasswordChanged: (value) {
-              setState(() {
-                generatedPassword = value;
-              });
-            },
-            generatedPassword: generatedPassword,
-          ),
-          Expanded(
-            flex: 5,
-            child: BlocBuilder<SaveGeneratedDataBloc, SaveGeneratedDataState>(
-              builder: (context, state) {
-                // Check if "Hero" exists in the list of state-generated passwords
-                bool isPawordExist = state.savedPasswords.any((passwordData) =>
-                    passwordData.generatedPassword.toLowerCase() ==
-                    generatedPassword);
-
-                return PasswordOptionChooseWidget(
-                  copyToClipboard: copyToClipboard,
-                  savePassword: () {
-                    if (generatedPassword == '') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        duration: Duration(seconds: 1),
-                        elevation: 0,
-                        backgroundColor: Colors.transparent,
-                        behavior: SnackBarBehavior.floating,
-                        content: CustomSnackBarMessage(
-                            headerText: "Ooops!",
-                            bodyText: "Forget to generate new password?",
-                            backgroundColor: Color(0xCCDC4E59),
-                            bubbleColor: Color(0xCCC73743),
-                            iconToShowInbubble: Icon(
-                              Icons.check,
-                              color: Colors.white,
-                            )),
-                      ));
-                    } else if (isPawordExist) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        duration: Duration(seconds: 1),
-                        elevation: 0,
-                        backgroundColor: Colors.transparent,
-                        behavior: SnackBarBehavior.floating,
-                        content: CustomSnackBarMessage(
-                            headerText: "Sorry!",
-                            bodyText:
-                                "Password already exist,generate new one.",
-                            backgroundColor: Color(0xCCDC4E59),
-                            bubbleColor: Color(0xCCC73743),
-                            iconToShowInbubble: Icon(
-                              Icons.check,
-                              color: Colors.white,
-                            )),
-                      ));
-                    } else {
-                      savePassword();
-                    }
-                  },
-                  currentPasswordLength: _currentPasswordLength,
-                  onPasswordLengthChanged: (value) {
-                    setState(() {
-                      _currentPasswordLength = value;
-                    });
-                  },
-                  isLowerCase: _isLowerCase,
-                  onLowerCaseChanged: (value) {
-                    setState(() {
-                      _isLowerCase = value;
-                    });
-                  },
-                  isUpperCase: _isUpperCase,
-                  onUpperCaseChanged: (value) {
-                    setState(() {
-                      _isUpperCase = value;
-                    });
-                  },
-                  isNumbers: _isnumbers,
-                  onNumbersChanged: (value) {
-                    setState(() {
-                      _isnumbers = value;
-                    });
-                  },
-                  isSpecialCharacters: _isSpecialCharacters,
-                  onSpecialCharactersChanged: (value) {
-                    setState(() {
-                      _isSpecialCharacters = value;
-                    });
-                  },
-                );
+            GeneratedPasswordStringWidget(
+              ongeneratedPasswordChanged: (value) {
+                setState(() {
+                  generatedPassword = value;
+                });
               },
+              generatedPassword: generatedPassword,
             ),
-          ),
-        ],
+            SizedBox(
+              // color: Colors.amber,
+              height: 500.h,
+              child: BlocBuilder<SaveGeneratedDataBloc, SaveGeneratedDataState>(
+                builder: (context, state) {
+                  // Check if "Hero" exists in the list of state-generated passwords
+                  bool isPawordExist = state.savedPasswords.any((passwordData) =>
+                      passwordData.generatedPassword.toLowerCase() ==
+                      generatedPassword);
+      
+                  return PasswordOptionChooseWidget(
+                    copyToClipboard: copyToClipboard,
+                    savePassword: () {
+                      if (generatedPassword == '') {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          duration: Duration(seconds: 1),
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                          behavior: SnackBarBehavior.floating,
+                          content: CustomSnackBarMessage(
+                              headerText: "Ooops!",
+                              bodyText: "Forget to generate new password?",
+                              backgroundColor: Color(0xCCDC4E59),
+                              bubbleColor: Color(0xCCC73743),
+                              iconToShowInbubble: Icon(
+                                Icons.check,
+                                color: Colors.white,
+                              )),
+                        ));
+                      } else if (isPawordExist) {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          duration: Duration(seconds: 1),
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                          behavior: SnackBarBehavior.floating,
+                          content: CustomSnackBarMessage(
+                              headerText: "Sorry!",
+                              bodyText:
+                                  "Password already exist,generate new one.",
+                              backgroundColor: Color(0xCCDC4E59),
+                              bubbleColor: Color(0xCCC73743),
+                              iconToShowInbubble: Icon(
+                                Icons.check,
+                                color: Colors.white,
+                              )),
+                        ));
+                      } else {
+                        savePassword();
+                      }
+                    },
+                    currentPasswordLength: _currentPasswordLength,
+                    onPasswordLengthChanged: (value) {
+                      setState(() {
+                        _currentPasswordLength = value;
+                      });
+                    },
+                    isLowerCase: _isLowerCase,
+                    onLowerCaseChanged: (value) {
+                      setState(() {
+                        _isLowerCase = value;
+                      });
+                    },
+                    isUpperCase: _isUpperCase,
+                    onUpperCaseChanged: (value) {
+                      setState(() {
+                        _isUpperCase = value;
+                      });
+                    },
+                    isNumbers: _isnumbers,
+                    onNumbersChanged: (value) {
+                      setState(() {
+                        _isnumbers = value;
+                      });
+                    },
+                    isSpecialCharacters: _isSpecialCharacters,
+                    onSpecialCharactersChanged: (value) {
+                      setState(() {
+                        _isSpecialCharacters = value;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
