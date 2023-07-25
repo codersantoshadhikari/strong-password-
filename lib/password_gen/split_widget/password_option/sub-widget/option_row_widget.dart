@@ -38,17 +38,12 @@ class OptionRowCardWidget extends StatelessWidget {
               flex: 1,
               child: Padding(
                 padding: EdgeInsets.only(left: 25.w),
-                child: iconAsset != null
-                    ? SvgPicture.asset(
+                child:
+                    SvgPicture.asset(
                         iconAsset!,
                         width: 35.w,
                         height: 35.h,
                       )
-                    : Text(
-                        "@#&",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18.sp),
-                      ),
               ),
             ),
             Expanded(
