@@ -12,6 +12,18 @@ class ButtonWidget extends StatefulWidget {
 
 class _ButtonWidgetState extends State<ButtonWidget> {
   @override
+  void initState() {
+    super.initState();
+    // After 1 second, show the button
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      setState(() {
+        Navigator.pushNamedAndRemoveUntil(
+            context, Routes.passwordGenerationScreen, (route) => false);
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40.h,
@@ -27,7 +39,8 @@ class _ButtonWidgetState extends State<ButtonWidget> {
               const Color.fromARGB(255, 255, 255, 255)),
         ),
         onPressed: () {
-          Navigator.pushReplacementNamed(context, Routes.passwordGenerationScreen);
+          Navigator.pushReplacementNamed(
+              context, Routes.passwordGenerationScreen);
           // Navigator.pushNamedAndRemoveUntil(context, Routes.passwordGenerationScreen, (route) => false);
           // Handle button click action here
         },

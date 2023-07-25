@@ -36,6 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward(); // Start the first animation
 
+   
   }
 
   @override
