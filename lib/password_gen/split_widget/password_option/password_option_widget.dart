@@ -132,6 +132,7 @@ class _PasswordOptionChooseWidgetState
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 25.w),
               child: OptionRowCardWidget(
+                iconAsset: AppIcons.specCharactersIcon,
                 text: 'Include Special Characters',
                 value: widget.isSpecialCharacters,
                 onChanged: widget.onSpecialCharactersChanged,
