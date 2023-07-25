@@ -173,13 +173,34 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
 
   void generatePassword() {
     setState(() {
-      generatedPassword = PasswordGeneratorUtils.generatePassword(
+      if(!_isUpperCase && !_isLowerCase && !_isnumbers && !_isSpecialCharacters){
+ ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          duration: Duration(seconds: 1),
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                          behavior: SnackBarBehavior.floating,
+                          content: CustomSnackBarMessage(
+                              headerText: "Opps!",
+                              bodyText:
+                                  "At least choose one condition",
+                              backgroundColor: Color(0xCCDC4E59),
+                              bubbleColor: Color(0xCCC73743),
+                              iconToShowInbubble: Icon(
+                                Icons.check,
+                                color: Colors.white,
+                              )),
+                        ));
+      }
+      else{
+        generatedPassword = PasswordGeneratorUtils.generatePassword(
         currentPasswordLength: _currentPasswordLength,
         isUpperCase: _isUpperCase,
         isLowerCase: _isLowerCase,
         isNumbers: _isnumbers,
         isSpecialCharacters: _isSpecialCharacters,
       );
+      }
+      
     });
   }
 

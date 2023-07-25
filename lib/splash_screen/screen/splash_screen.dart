@@ -36,12 +36,6 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward(); // Start the first animation
 
-    // After 1 second, show the button
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() {
-        _showButton = true;
-      });
-    });
   }
 
   @override
@@ -50,27 +44,26 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-  bool _showButton = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1C0141), // Change this to your desired background color
       body: Center(
-        child: AnimatedBuilder(
-          animation: _controller,
-          builder: (context, child) {
-            return Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            AnimatedBuilder(
+              animation: _controller,
+              builder: (context, child) {
+                return Positioned(
                   top: _imagePositionAnimation.value.top,
                   child: const LogoWidget(),
-                ),
-                if (_showButton) Positioned(top: 550.h, child: const ButtonWidget()),
-              ],
-            );
-          },
+                );
+              }
+            ),
+           Positioned(top: 550.h, child: const ButtonWidget()),
+          ],
         ),
       ),
     );
