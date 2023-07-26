@@ -82,25 +82,6 @@ final savedData = SaveGeneratedPasswordModel(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );
 
-      // You can navigate to the desired screen if needed.
     }
   }
-
-  // static void savePassword(
-  //     String generatedPassword, SaveGeneratedDataBloc bloc) {
-  //   if (generatedPassword.isNotEmpty) {
-  //     final savedData = SaveGeneratedPasswordModel(
-  //       id: generateUniqueId('Pass-'),
-  //       generatedPassword: generatedPassword,
-  //       date: DateTime.now().toString().split(' ').first,
-  //       time: DateFormat('hh:mm a').format(DateTime.now()),
-  //     );
-
-  //     bloc.add(
-  //       SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
-  //     );
-
-  //     // You can navigate to the desired screen if needed.
-  //   }
-  // }
 }

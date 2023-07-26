@@ -4,9 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:intl/intl.dart';
 import 'package:nepali_fortify/bloc/save_generated_data_bloc.dart';
 import 'package:nepali_fortify/custom_widgets/snackbar.dart';
-// import 'package:nepali_fortify/constants/app_icons.dart';
-// import 'package:nepali_fortify/function/generate_unique_id.dart';
-// import 'package:nepali_fortify/model/save_password_model.dart';
+
 import 'package:nepali_fortify/password_gen/split_widget/display_welcome_message_widget.dart';
 import 'package:nepali_fortify/password_gen/split_widget/gen_password_widget.dart';
 import 'package:nepali_fortify/password_gen/split_widget/generated_password_widget.dart';
@@ -52,7 +50,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const HeaderWidget(),
-          SizedBox(
+            SizedBox(
               // color: Colors.red,÷
               height: 220.h,
               child: Padding(
@@ -87,15 +85,17 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
               child: BlocBuilder<SaveGeneratedDataBloc, SaveGeneratedDataState>(
                 builder: (context, state) {
                   // Check if "Hero" exists in the list of state-generated passwords
-                  bool isPawordExist = state.savedPasswords.any((passwordData) =>
-                      passwordData.generatedPassword.toLowerCase() ==
-                      generatedPassword);
-      
+                  bool isPawordExist = state.savedPasswords.any(
+                      (passwordData) =>
+                          passwordData.generatedPassword.toLowerCase() ==
+                          generatedPassword);
+
                   return PasswordOptionChooseWidget(
                     copyToClipboard: copyToClipboard,
                     savePassword: () {
                       if (generatedPassword == '') {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
                           duration: Duration(seconds: 1),
                           elevation: 0,
                           backgroundColor: Colors.transparent,
@@ -106,12 +106,13 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                               backgroundColor: Color(0xCCDC4E59),
                               bubbleColor: Color(0xCCC73743),
                               iconToShowInbubble: Icon(
-                                Icons.check,
+                                Icons.close,
                                 color: Colors.white,
                               )),
                         ));
                       } else if (isPawordExist) {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
                           duration: Duration(seconds: 1),
                           elevation: 0,
                           backgroundColor: Colors.transparent,
@@ -123,7 +124,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                               backgroundColor: Color(0xCCDC4E59),
                               bubbleColor: Color(0xCCC73743),
                               iconToShowInbubble: Icon(
-                                Icons.check,
+                                Icons.close,
                                 color: Colors.white,
                               )),
                         ));
@@ -173,13 +174,34 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
 
   void generatePassword() {
     setState(() {
-      generatedPassword = PasswordGeneratorUtils.generatePassword(
-        currentPasswordLength: _currentPasswordLength,
-        isUpperCase: _isUpperCase,
-        isLowerCase: _isLowerCase,
-        isNumbers: _isnumbers,
-        isSpecialCharacters: _isSpecialCharacters,
-      );
+      if (!_isUpperCase &&
+          !_isLowerCase &&
+          !_isnumbers &&
+          !_isSpecialCharacters) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          duration: Duration(seconds: 1),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          behavior: SnackBarBehavior.floating,
+          content: CustomSnackBarMessage(
+              headerText: "Opps!",
+              bodyText: "At least choose one condition",
+              backgroundColor: Color(0xCCDC4E59),
+              bubbleColor: Color(0xCCC73743),
+              iconToShowInbubble: Icon(
+                Icons.close,
+                color: Colors.white,
+              )),
+        ));
+      } else {
+        generatedPassword = PasswordGeneratorUtils.generatePassword(
+          currentPasswordLength: _currentPasswordLength,
+          isUpperCase: _isUpperCase,
+          isLowerCase: _isLowerCase,
+          isNumbers: _isnumbers,
+          isSpecialCharacters: _isSpecialCharacters,
+        );
+      }
     });
   }
 

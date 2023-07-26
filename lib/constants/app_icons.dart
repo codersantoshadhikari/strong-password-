@@ -1,6 +1,6 @@
 class AppIcons {
   AppIcons._();
-  ///splash Screen Logo///
+  ///splash Screen Logo
   static const String appLogo = 'assets/png_images/app_logo.png';
   static const String onlyLogo = 'assets/png_images/logo.png';
   static const String backGroundDecImage = 'assets/png_images/decoration_image_icon.png';
@@ -8,7 +8,7 @@ class AppIcons {
 
 
 
-  ///svg_icons///
+  ///svg_icons
   static const String lowerCaseIcon = 'assets/svg_images/lowercase_icon.svg';
   static const String upperCaseIcon = 'assets/svg_images/uppercase_icon.svg';
   static const String numberIcon = 'assets/svg_images/number_icon.svg';
@@ -17,15 +17,6 @@ class AppIcons {
   static const String backGroundDecIcon = 'assets/svg_images/background_dec_icon.svg';
   static const String bubbleArt = 'assets/svg_images/bubble_art.svg';
   static const String failBubble = 'assets/svg_images/comment_bubble.svg';
+  static const String specCharactersIcon = 'assets/svg_images/spc_character_icon.svg';
 
-  
-
-
-
-  // static const String  appNameFirstPart = 'assets/png_images/app_name_first.png';
-  // static const String appNameLastPart = 'assets/png_images/app_name_second.png';
-
-  ///home screen background image///
-  // static const String backgroundImage = 'assets/png_images/background_image.png';
-  
 }
