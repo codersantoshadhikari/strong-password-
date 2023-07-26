@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# fast_pw_manager
+>>>>>>> f14bf74ef0c87273cff085735f36d2584e6b9173
 
 
 ## Getting Started

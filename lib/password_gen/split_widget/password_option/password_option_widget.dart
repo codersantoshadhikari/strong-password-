@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nepali_fortify/constants/app_icons.dart';
-import 'package:nepali_fortify/password_gen/split_widget/password_option/sub-widget/option_row_widget.dart';
+import 'package:fast_pw_manager/constants/app_icons.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/password_option/sub-widget/option_row_widget.dart';
 
 import '../../../routes/routes.dart';
 

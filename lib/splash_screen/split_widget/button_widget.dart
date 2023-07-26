@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nepali_fortify/routes/routes.dart';
+import 'package:fast_pw_manager/routes/routes.dart';
 
 class ButtonWidget extends StatefulWidget {
   const ButtonWidget({super.key});
@@ -41,8 +41,6 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         onPressed: () {
           Navigator.pushReplacementNamed(
               context, Routes.passwordGenerationScreen);
-          // Navigator.pushNamedAndRemoveUntil(context, Routes.passwordGenerationScreen, (route) => false);
-          // Handle button click action here
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

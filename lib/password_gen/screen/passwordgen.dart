@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:intl/intl.dart';
+<<<<<<< HEAD
 import 'package:nepali_fortify/bloc/save_generated_data_bloc.dart';
 import 'package:nepali_fortify/custom_widgets/snackbar.dart';
 
@@ -12,6 +13,20 @@ import 'package:nepali_fortify/password_gen/split_widget/header_widget.dart';
 import 'package:nepali_fortify/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
 import 'package:nepali_fortify/password_gen/split_widget/password_option/password_option_widget.dart';
 import 'package:nepali_fortify/routes/routes.dart';
+=======
+import 'package:fast_pw_manager/bloc/save_generated_data_bloc.dart';
+import 'package:fast_pw_manager/custom_widgets/snackbar.dart';
+// import 'package:fast_pw_manager/constants/app_icons.dart';
+// import 'package:fast_pw_manager/function/generate_unique_id.dart';
+// import 'package:fast_pw_manager/model/save_password_model.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/display_welcome_message_widget.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/gen_password_widget.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/generated_password_widget.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/header_widget.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/password_option/password_option_widget.dart';
+import 'package:fast_pw_manager/routes/routes.dart';
+>>>>>>> f14bf74ef0c87273cff085735f36d2584e6b9173
 // import '../../savescreen.dart';
 
 class PasswordGeneratorScreen extends StatefulWidget {
@@ -189,7 +204,11 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
               backgroundColor: Color(0xCCDC4E59),
               bubbleColor: Color(0xCCC73743),
               iconToShowInbubble: Icon(
+<<<<<<< HEAD
                 Icons.close,
+=======
+                Icons.check,
+>>>>>>> f14bf74ef0c87273cff085735f36d2584e6b9173
                 color: Colors.white,
               )),
         ));

@@ -3,9 +3,9 @@
 import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:nepali_fortify/bloc/save_generated_data_bloc.dart';
-import 'package:nepali_fortify/function/generate_unique_id.dart';
-import 'package:nepali_fortify/model/save_password_model.dart';
+import 'package:fast_pw_manager/bloc/save_generated_data_bloc.dart';
+import 'package:fast_pw_manager/function/generate_unique_id.dart';
+import 'package:fast_pw_manager/model/save_password_model.dart';
 
 class PasswordGeneratorUtils {
   static String generatePassword({
@@ -55,7 +55,6 @@ class PasswordGeneratorUtils {
   ) {
     if (generatedPassword.isNotEmpty) {
       List<String> category = [];
-      
 
       // Add the selected options to the list based on their values
       if (_upperCase) {
@@ -70,18 +69,15 @@ class PasswordGeneratorUtils {
       if (_specialCharacters) {
         category.add('SpecialCharacters');
       }
-final savedData = SaveGeneratedPasswordModel(
-        id: generateUniqueId('Pass-'),
-        generatedPassword: generatedPassword,
-        date: DateTime.now().toString().split(' ').first,
-        time: DateFormat('hh:mm a').format(DateTime.now()),
-        category: category
-       
-      );
+      final savedData = SaveGeneratedPasswordModel(
+          id: generateUniqueId('Pass-'),
+          generatedPassword: generatedPassword,
+          date: DateTime.now().toString().split(' ').first,
+          time: DateFormat('hh:mm a').format(DateTime.now()),
+          category: category);
       bloc.add(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );
-
     }
   }
 }
