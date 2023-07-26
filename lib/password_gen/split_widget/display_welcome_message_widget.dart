@@ -8,7 +8,7 @@ class DisplayWelcomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: '\n\nWelcome,\n\n',
+        text: '',
         style: const TextStyle(fontSize: 12, color: Colors.black),
         children: [
           TextSpan(
