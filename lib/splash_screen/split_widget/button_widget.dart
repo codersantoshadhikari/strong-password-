@@ -41,8 +41,6 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         onPressed: () {
           Navigator.pushReplacementNamed(
               context, Routes.passwordGenerationScreen);
-          // Navigator.pushNamedAndRemoveUntil(context, Routes.passwordGenerationScreen, (route) => false);
-          // Handle button click action here
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

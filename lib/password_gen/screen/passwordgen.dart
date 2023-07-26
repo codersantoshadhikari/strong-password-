@@ -106,7 +106,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                               backgroundColor: Color(0xCCDC4E59),
                               bubbleColor: Color(0xCCC73743),
                               iconToShowInbubble: Icon(
-                                Icons.check,
+                                Icons.close,
                                 color: Colors.white,
                               )),
                         ));
