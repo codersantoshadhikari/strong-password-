@@ -1,4 +1,4 @@
-# nepali_fortify
+# fast_pw_manager
 
 A new Flutter project.
 

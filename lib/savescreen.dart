@@ -1,13 +1,15 @@
 // ignore_for_file: deprecated_member_use
 
+// import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nepali_fortify/bloc/save_generated_data_bloc.dart';
-import 'package:nepali_fortify/constants/app_icons.dart';
-import 'package:nepali_fortify/model/save_password_model.dart';
-import 'package:nepali_fortify/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
+import 'package:fast_pw_manager/bloc/save_generated_data_bloc.dart';
+import 'package:fast_pw_manager/constants/app_icons.dart';
+import 'package:fast_pw_manager/model/save_password_model.dart';
+import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
 
 class SaveScreen extends StatefulWidget {
   const SaveScreen({Key? key}) : super(key: key);

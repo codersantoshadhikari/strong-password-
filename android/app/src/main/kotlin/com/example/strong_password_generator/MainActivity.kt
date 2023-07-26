@@ -1,4 +1,4 @@
-package com.example.nepali_fortify
+package com.example.fast_pw_manager
 
 import io.flutter.embedding.android.FlutterActivity
 

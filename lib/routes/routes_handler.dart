@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:nepali_fortify/home/screen/home_screen.dart';
-import 'package:nepali_fortify/password_gen/screen/passwordgen.dart';
-import 'package:nepali_fortify/routes/routes.dart';
-import 'package:nepali_fortify/savescreen.dart';
-import 'package:nepali_fortify/splash_screen/screen/splash_screen.dart';
+// import 'package:fast_pw_manager/home/screen/home_screen.dart';
+import 'package:fast_pw_manager/password_gen/screen/passwordgen.dart';
+import 'package:fast_pw_manager/routes/routes.dart';
+import 'package:fast_pw_manager/savescreen.dart';
+import 'package:fast_pw_manager/splash_screen/screen/splash_screen.dart';
 
 class RouteHandler {
   static Route<dynamic>? handlerRoute(RouteSettings settings) {

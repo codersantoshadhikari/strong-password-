@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nepali_fortify/splash_screen/split_widget/button_widget.dart';
-import 'package:nepali_fortify/splash_screen/split_widget/logo_widget.dart';
+import 'package:fast_pw_manager/splash_screen/split_widget/button_widget.dart';
+import 'package:fast_pw_manager/splash_screen/split_widget/logo_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,7 +14,6 @@ class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<EdgeInsets> _imagePositionAnimation;
-
 
   @override
   void initState() {
@@ -35,8 +33,6 @@ class _SplashScreenState extends State<SplashScreen>
     ));
 
     _controller.forward(); // Start the first animation
-
-   
   }
 
   @override
@@ -45,25 +41,24 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1C0141), // Change this to your desired background color
+      backgroundColor: const Color(
+          0xFF1C0141), // Change this to your desired background color
       body: Center(
         child: Stack(
           alignment: Alignment.center,
           children: [
             AnimatedBuilder(
-              animation: _controller,
-              builder: (context, child) {
-                return Positioned(
-                  top: _imagePositionAnimation.value.top,
-                  child: const LogoWidget(),
-                );
-              }
-            ),
-           Positioned(top: 550.h, child: const ButtonWidget()),
+                animation: _controller,
+                builder: (context, child) {
+                  return Positioned(
+                    top: _imagePositionAnimation.value.top,
+                    child: const LogoWidget(),
+                  );
+                }),
+            Positioned(top: 550.h, child: const ButtonWidget()),
           ],
         ),
       ),

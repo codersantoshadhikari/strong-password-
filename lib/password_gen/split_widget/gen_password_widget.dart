@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nepali_fortify/constants/app_icons.dart';
+import 'package:fast_pw_manager/constants/app_icons.dart';
 
 class GeneratePasswordWidget extends StatelessWidget {
-  const GeneratePasswordWidget({super.key,required this.generatePassword});
-   final VoidCallback generatePassword;
+  const GeneratePasswordWidget({super.key, required this.generatePassword});
+  final VoidCallback generatePassword;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class GeneratePasswordWidget extends StatelessWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(AppIcons.onlyLogo),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
                 color: Color(0xFF1C0141),
                 shape: BoxShape.circle,

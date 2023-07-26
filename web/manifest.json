@@ -1,6 +1,6 @@
 {
-    "name": "nepali_fortify",
-    "short_name": "nepali_fortify",
+    "name": "fast_pw_manager",
+    "short_name": "fast_pw_manager",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
