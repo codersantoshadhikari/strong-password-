@@ -27,31 +27,31 @@ class GeneratePasswordWidget extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.r),
-                    ),
-                  ),
-                  backgroundColor: MaterialStateProperty.all(
-                    const Color(0xFFD9F9E1),
-                  ),
-                ),
-                onPressed: generatePassword,
-                child: const Center(
-                  child: Text(
-                    'Generate',
-                    style: TextStyle(color: Color(0xFF5FA773)),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // Expanded(
+          //   flex: 2,
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(8.0),
+          // child: ElevatedButton(
+          //   style: ButtonStyle(
+          //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          //       RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(15.r),
+          //       ),
+          //     ),
+          //     backgroundColor: MaterialStateProperty.all(
+          //       const Color(0xFFD9F9E1),
+          //     ),
+          //   ),
+          //   onPressed: generatePassword,
+          //   child: const Center(
+          //     child: Text(
+          //       'Generate',
+          //       style: TextStyle(color: Color(0xFF5FA773)),
+          //     ),
+          //   ),
+          // ),
+          //   ),
+          // ),
         ],
       ),
     );

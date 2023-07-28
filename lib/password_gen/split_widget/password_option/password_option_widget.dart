@@ -46,7 +46,7 @@ class _PasswordOptionChooseWidgetState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.h),
+      padding: EdgeInsets.symmetric(vertical: 12.h),
       child: Container(
         color: const Color(0xFFF7F8FA),
         child: Column(
@@ -54,52 +54,67 @@ class _PasswordOptionChooseWidgetState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 20.h),
+              padding: EdgeInsets.only(
+                left: 25.w,
+                right: 25.w,
+              ),
               child: const Text(
-                'Choose Password Length',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                'Choose Password Strength',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 25.w),
-              child: Row(
-                children: [
-                  Expanded(
-                      flex: 8,
-                      child: Slider(
-                        activeColor: const Color(0xFF4FD1D9),
-                        inactiveColor: const Color(0xFFD9F3F9),
-                        value: widget.currentPasswordLength,
-                        min: 8,
-                        max: 24,
-                        onChanged: (value) {
-                          setState(() {
-                            if (value <= 10) {
-                              widget.onPasswordLengthChanged(8);
-                            } else if (value > 10 && value <= 14) {
-                              widget.onPasswordLengthChanged(12);
-                            } else if (value > 14 && value <= 20) {
-                              widget.onPasswordLengthChanged(16);
-                            } else {
-                              widget.onPasswordLengthChanged(24);
-                            }
-                          });
-                        },
-                        divisions: 3, // Number of divisions (4 segments)
-                        label:
-                            '${widget.currentPasswordLength.toInt()}', // Display the current value as a label
-                      )),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '${widget.currentPasswordLength.toInt()}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.sp,
+              child: Container(
+                height: 40.h,
+                padding: EdgeInsets.only(left: 25),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.r),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  child: Row(
+                    children: [
+                      Expanded(flex: 2, child: Text("Length : ")),
+                      Expanded(
+                          flex: 8,
+                          child: Slider(
+                            activeColor: const Color(0xFF4FD1D9),
+                            inactiveColor: const Color(0xFFD9F3F9),
+                            value: widget.currentPasswordLength,
+                            min: 8,
+                            max: 24,
+                            onChanged: (value) {
+                              setState(() {
+                                if (value <= 10) {
+                                  widget.onPasswordLengthChanged(8);
+                                } else if (value > 10 && value <= 14) {
+                                  widget.onPasswordLengthChanged(12);
+                                } else if (value > 14 && value <= 20) {
+                                  widget.onPasswordLengthChanged(16);
+                                } else {
+                                  widget.onPasswordLengthChanged(24);
+                                }
+                              });
+                            },
+                            divisions: 3, // Number of divisions (4 segments)
+                            label:
+                                '${widget.currentPasswordLength.toInt()}', // Display the current value as a label
+                          )),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          '${widget.currentPasswordLength.toInt()}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
             Padding(

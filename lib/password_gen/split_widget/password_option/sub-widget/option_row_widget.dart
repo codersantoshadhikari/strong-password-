@@ -26,7 +26,7 @@ class OptionRowCardWidget extends StatelessWidget {
         }
       },
       child: Container(
-        height: 70.h,
+        height: 40.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.r),
           color: Colors.white,
@@ -37,14 +37,12 @@ class OptionRowCardWidget extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: EdgeInsets.only(left: 25.w),
-                child:
-                    SvgPicture.asset(
-                        iconAsset!,
-                        width: 35.w,
-                        height: 35.h,
-                      )
-              ),
+                  padding: EdgeInsets.only(left: 25.w),
+                  child: SvgPicture.asset(
+                    iconAsset!,
+                    width: 35.w,
+                    height: 35.h,
+                  )),
             ),
             Expanded(
               flex: iconAsset != null ? 2 : 3,

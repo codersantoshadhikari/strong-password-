@@ -49,7 +49,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
               // const HeaderWidget(),
               SizedBox(
                 // color: Colors.red,÷
-                height: 220.h,
+                height: 190.h,
                 child: Padding(
                   padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 10.h),
                   child: Row(
@@ -65,6 +65,31 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+              ),
+              // button
+              Align(
+                child: SizedBox(
+                  width: 180,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.r),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all(
+                        const Color(0xFFD9F9E1),
+                      ),
+                    ),
+                    onPressed: generatePassword,
+                    child: const Center(
+                      child: Text(
+                        'Generate',
+                        style: TextStyle(color: Color(0xFF5FA773)),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -217,6 +242,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
       _isSpecialCharacters,
       BlocProvider.of<SaveGeneratedDataBloc>(context),
     );
+    
     Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
   }
 }
