@@ -11,8 +11,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants/app_icons.dart';
 import '../../custom_widgets/elevated_button/custom_eleveted_button.dart';
+
 class SavePasswordComponentAlert extends StatefulWidget {
-  const SavePasswordComponentAlert({super.key,required this.generatedPassword,
+  const SavePasswordComponentAlert(
+      {super.key,
+      required this.generatedPassword,
       required this.isUpperCase,
       required this.isLowerCase,
       required this.isnumbers,
@@ -24,12 +27,14 @@ class SavePasswordComponentAlert extends StatefulWidget {
   final bool isSpecialCharacters;
 
   @override
-  State<SavePasswordComponentAlert> createState() => _SavePasswordComponentAlertState();
+  State<SavePasswordComponentAlert> createState() =>
+      _SavePasswordComponentAlertState();
 }
 
-class _SavePasswordComponentAlertState extends State<SavePasswordComponentAlert> {
+class _SavePasswordComponentAlertState
+    extends State<SavePasswordComponentAlert> {
   // GlobalKey<FormState> savePasswordKey = GlobalKey<FormState>();
-   int choosedImageIndex = -1;
+  int choosedImageIndex = -1;
   TextEditingController userNameorId = TextEditingController();
   TextEditingController password = TextEditingController();
   List<String> listOficonsImage = [
@@ -43,9 +48,14 @@ class _SavePasswordComponentAlertState extends State<SavePasswordComponentAlert>
     AppIcons.dockerIcon
   ];
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    password.text = widget.generatedPassword;
+  }
 
-   return DropShadow(
+  @override
+  Widget build(BuildContext context) {
+    return DropShadow(
       child: AlertDialog(
         backgroundColor: const Color(0xFFF7F8FA),
         shape: RoundedRectangleBorder(
@@ -191,13 +201,13 @@ class _SavePasswordComponentAlertState extends State<SavePasswordComponentAlert>
               CustomElevatedButton(
                 onPressed: () {
                   // if (savePasswordKey.currentState!.validate()) {
-                    PasswordGeneratorUtils.savePassword(
-                        widget.generatedPassword,
-                        widget.isUpperCase,
-                        widget.isLowerCase,
-                        widget.isnumbers,
-                        widget.isSpecialCharacters,
-                        BlocProvider.of<SaveGeneratedDataBloc>(context));
+                  PasswordGeneratorUtils.savePassword(
+                      widget.generatedPassword,
+                      widget.isUpperCase,
+                      widget.isLowerCase,
+                      widget.isnumbers,
+                      widget.isSpecialCharacters,
+                      BlocProvider.of<SaveGeneratedDataBloc>(context));
                   // }
                   // Navigator.pop(context);
                 },
