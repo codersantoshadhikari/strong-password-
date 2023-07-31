@@ -1,9 +1,9 @@
+import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:fast_pw_manager/bloc/save_generated_data_bloc.dart';
 import 'package:fast_pw_manager/routes/routes_handler.dart';
 import 'package:fast_pw_manager/splash_screen/screen/splash_screen.dart';
 

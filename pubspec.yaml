@@ -27,6 +27,7 @@ dependencies:
   path_provider: ^2.0.15
   intl: ^0.18.1
   flutter_launcher_icons: ^0.13.1
+  drop_shadow: ^0.1.0
   # timer_builder: ^2.0.0
   
 

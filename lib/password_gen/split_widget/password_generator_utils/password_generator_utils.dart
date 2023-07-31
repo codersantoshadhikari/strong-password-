@@ -1,9 +1,9 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'dart:math';
+import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:fast_pw_manager/bloc/save_generated_data_bloc.dart';
 import 'package:fast_pw_manager/function/generate_unique_id.dart';
 import 'package:fast_pw_manager/model/save_password_model.dart';
 
