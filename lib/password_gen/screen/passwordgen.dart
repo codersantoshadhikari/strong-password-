@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fast_pw_manager/bloc/save_generated_data_bloc.dart';
-import 'package:fast_pw_manager/custom_widgets/snackbar.dart';
+import 'package:fast_pw_manager/custom_widgets/snackbar/snackbar.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/display_welcome_message_widget.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/gen_password_widget.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/generated_password_widget.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/password_option/password_option_widget.dart';
 import 'package:fast_pw_manager/routes/routes.dart';
+
+import '../../custom_widgets/alert_dialouge/alert_dialouge.dart';
+import '../bloc/save_generated_data_bloc.dart';
 
 class PasswordGeneratorScreen extends StatefulWidget {
   const PasswordGeneratorScreen({Key? key}) : super(key: key);
@@ -29,6 +31,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   String generatedPassword = '';
 
   final TextEditingController _lengthController = TextEditingController();
+  
 
   @override
   void initState() {
@@ -152,7 +155,14 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                                 )),
                           ));
                         } else {
-                          savePassword();
+                          // savePassword();
+                          showDialogBoxShowingCompenentToSavePassword(
+                              context,
+                              generatedPassword,
+                              _isLowerCase,
+                              _isUpperCase,
+                              _isnumbers,
+                              _isSpecialCharacters);
                         }
                       },
                       currentPasswordLength: _currentPasswordLength,
@@ -242,7 +252,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
       _isSpecialCharacters,
       BlocProvider.of<SaveGeneratedDataBloc>(context),
     );
-    
+
     Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
   }
 }
