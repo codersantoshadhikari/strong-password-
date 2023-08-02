@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../password_gen/save_password_alert_dialouge/save_password_component_alert_dialougebox.dart';
+import '../../password_gen/show_alert_dialouge/save_password_component_alert_dialougebox.dart';
 
 Future<dynamic> showDialogBoxShowingCompenentToSavePassword(
     BuildContext context,

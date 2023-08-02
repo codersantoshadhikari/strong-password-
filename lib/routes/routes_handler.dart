@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:fast_pw_manager/home/screen/home_screen.dart';
 import 'package:fast_pw_manager/password_gen/screen/passwordgen.dart';
 import 'package:fast_pw_manager/routes/routes.dart';
-import 'package:fast_pw_manager/savescreen.dart';
+import 'package:fast_pw_manager/saved_password_view/screen/savescreen.dart';
 import 'package:fast_pw_manager/splash_screen/screen/splash_screen.dart';
 
 class RouteHandler {
@@ -23,7 +23,7 @@ class RouteHandler {
             settings: settings);
       case Routes.saveGeneratedPassWordScreen:
         return MaterialPageRoute(
-            builder: (_) => const SaveScreen(), settings: settings);
+            builder: (_) => const SaveedPasswordScreenWidget(), settings: settings);
       default:
         return MaterialPageRoute<void>(
             builder: ((_) => const SplashScreen()), settings: settings);
