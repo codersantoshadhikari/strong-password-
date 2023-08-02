@@ -34,7 +34,8 @@ class CustomTextFieldWidget extends StatefulWidget {
       this.labelText,
       this.isError,
       this.labelStyle,
-      this.floatingStyle});
+      this.floatingStyle,
+      required this.focusNode});
 
   final Color? backgroundColor;
   final Color? textColor;
@@ -63,6 +64,7 @@ class CustomTextFieldWidget extends StatefulWidget {
   final bool? isError;
   final TextStyle? labelStyle;
   final TextStyle? floatingStyle;
+  final FocusNode focusNode;
 
   @override
   CustomTextFieldWidgetState createState() => CustomTextFieldWidgetState();
@@ -80,6 +82,7 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: widget.focusNode,
       // enableSuggestions: false,
       // maxLengthEnforcement: MaxLengthEnforcement.enforced,
       // autofocus: true,

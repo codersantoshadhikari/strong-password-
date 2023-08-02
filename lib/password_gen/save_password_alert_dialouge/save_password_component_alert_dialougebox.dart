@@ -12,16 +12,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants/app_icons.dart';
 import '../../custom_widgets/elevated_button/custom_eleveted_button.dart';
+
 List<String> listOficonsImage = [
-    AppIcons.googleIcon,
-    AppIcons.facebookIcon,
-    AppIcons.instagramIcon,
-    AppIcons.twitterIcon,
-    AppIcons.figmaIcon,
-    AppIcons.linkedinIcon,
-    AppIcons.githubIcon,
-    AppIcons.dockerIcon
-  ];
+  AppIcons.googleIcon,
+  AppIcons.facebookIcon,
+  AppIcons.instagramIcon,
+  AppIcons.twitterIcon,
+  AppIcons.figmaIcon,
+  AppIcons.linkedinIcon,
+  AppIcons.githubIcon,
+  AppIcons.dockerIcon
+];
+
 class SavePasswordComponentAlert extends StatefulWidget {
   const SavePasswordComponentAlert(
       {super.key,
@@ -29,12 +31,14 @@ class SavePasswordComponentAlert extends StatefulWidget {
       required this.isUpperCase,
       required this.isLowerCase,
       required this.isnumbers,
-      required this.isSpecialCharacters});
+      required this.isSpecialCharacters,
+      required this.isFloatingButtonPressed});
   final String generatedPassword;
   final bool isUpperCase;
   final bool isLowerCase;
   final bool isnumbers;
   final bool isSpecialCharacters;
+  final bool isFloatingButtonPressed;
 
   @override
   State<SavePasswordComponentAlert> createState() =>
@@ -46,11 +50,22 @@ class _SavePasswordComponentAlertState
   int choosedImageIndex = -1;
   TextEditingController userNameorId = TextEditingController();
   TextEditingController password = TextEditingController();
-  
+  final FocusNode _passwordFocusNode = FocusNode();
+  final FocusNode _userNameFocusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
     password.text = widget.generatedPassword;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    password.dispose();
+    userNameorId.dispose();
+    _passwordFocusNode.dispose();
+    _userNameFocusNode.dispose();
   }
 
   @override
@@ -88,6 +103,7 @@ class _SavePasswordComponentAlertState
               Padding(
                 padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 20.h),
                 child: CustomTextFieldWidget(
+                  focusNode: _userNameFocusNode,
                   textColor: Colors.black87,
                   controller: userNameorId,
                   inputAction: TextInputAction.next, // Moves focus to next.
@@ -100,6 +116,7 @@ class _SavePasswordComponentAlertState
                     }
                   },
                   radius: 15.r,
+
                   borderSide:
                       const BorderSide(width: 2, color: Color(0xFF4FD1D9)),
                   backgroundColor: Colors.white,
@@ -116,6 +133,7 @@ class _SavePasswordComponentAlertState
               Padding(
                 padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 15.h),
                 child: CustomTextFieldWidget(
+                  focusNode: _passwordFocusNode,
                   textColor: Colors.black87,
                   controller: password,
                   inputAction: TextInputAction.done, // Hides the keyboard.
@@ -200,9 +218,11 @@ class _SavePasswordComponentAlertState
               ),
               CustomElevatedButton(
                 onPressed: () {
+                  _passwordFocusNode.unfocus();
+                  _userNameFocusNode.unfocus();
                   // if (savePasswordKey.currentState!.validate()) {
                   PasswordGeneratorUtils.savePassword(
-                      widget.generatedPassword,
+                      password.text,
                       widget.isUpperCase,
                       widget.isLowerCase,
                       widget.isnumbers,
@@ -212,8 +232,11 @@ class _SavePasswordComponentAlertState
                       userNameorId.text);
                   // }
                   Navigator.pop(context);
-                  Navigator.pushNamed(
+                  if(widget.isFloatingButtonPressed == false){
+                    Navigator.pushNamed(
                       context, Routes.saveGeneratedPassWordScreen);
+                  }
+                  
                 },
                 text1: 'Save',
                 bgColor: const Color(0xFF4FD1D9),

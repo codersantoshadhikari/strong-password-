@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../password_gen/save_password_component/save_password_component_alert_dialougebox.dart';
+import '../../password_gen/save_password_alert_dialouge/save_password_component_alert_dialougebox.dart';
 
 Future<dynamic> showDialogBoxShowingCompenentToSavePassword(
     BuildContext context,
@@ -8,7 +8,8 @@ Future<dynamic> showDialogBoxShowingCompenentToSavePassword(
     bool isLowerCase,
     bool isUpperCase,
     bool isnumbers,
-    bool isSpecialCharacters) {
+    bool isSpecialCharacters,
+    bool isFloatingButtonPressed) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -18,6 +19,7 @@ Future<dynamic> showDialogBoxShowingCompenentToSavePassword(
         isSpecialCharacters: isSpecialCharacters,
         isUpperCase: isUpperCase,
         isnumbers: isnumbers,
+        isFloatingButtonPressed: isFloatingButtonPressed,
       );
     },
   );

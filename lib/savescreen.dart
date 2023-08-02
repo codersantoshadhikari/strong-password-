@@ -2,8 +2,9 @@
 
 // import 'dart:js_interop';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
-import 'package:fast_pw_manager/password_gen/save_password_component/save_password_component_alert_dialougebox.dart';
+import 'package:fast_pw_manager/password_gen/save_password_alert_dialouge/save_password_component_alert_dialougebox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +12,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fast_pw_manager/constants/app_icons.dart';
 import 'package:fast_pw_manager/model/save_password_model.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
+
+import 'custom_widgets/alert_dialouge/alert_dialouge.dart';
 
 class SaveScreen extends StatefulWidget {
   const SaveScreen({Key? key}) : super(key: key);
@@ -67,192 +70,245 @@ class _SaveScreenState extends State<SaveScreen> {
                 width: double.infinity,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 100.h, bottom: 50.h),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(
-                                Icons.arrow_back,
-                                size: 30.sp,
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 100.h, bottom: 50.h),
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  size: 30.sp,
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10.h),
-                              child: Text(
-                                "My Passwords",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'Roboto',
-                                    fontSize: 24.sp),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10.h),
+                                child: Text(
+                                  "My Passwords",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Roboto',
+                                      fontSize: 24.sp),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                          width: double.infinity,
-                          height: 450,
-                          child: BlocBuilder<SaveGeneratedDataBloc,
-                              SaveGeneratedDataState>(
-                            builder: (context, state) {
-                              return ListView.builder(
-                                physics: const BouncingScrollPhysics(),
-                                itemCount: state.savedPasswords.length,
-                                itemBuilder: (context, index) {
-                                  final passwordData =
-                                      state.savedPasswords[index];
-                                  return Dismissible(
-                                    key: UniqueKey(),
-                                    background: Container(
-                                      decoration: BoxDecoration(
-                                          color: const Color(0xCCDC4E59),
+                        SizedBox(
+                            width: double.infinity,
+                            height: 580,
+                            child: BlocBuilder<SaveGeneratedDataBloc,
+                                SaveGeneratedDataState>(
+                              builder: (context, state) {
+                                return ListView.builder(
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: state.savedPasswords.length,
+                                  itemBuilder: (context, index) {
+                                    final passwordData =
+                                        state.savedPasswords[index];
+                                    return Dismissible(
+                                      key: UniqueKey(),
+                                      background: Container(
+                                        decoration: BoxDecoration(
+                                            color: const Color(0xCCDC4E59),
+                                            borderRadius:
+                                                BorderRadius.circular(15.r)),
+                                        alignment: Alignment.centerRight,
+                                        padding:
+                                            const EdgeInsets.only(right: 20.0),
+                                        child: const Icon(
+                                          Icons.delete,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      direction: DismissDirection
+                                          .endToStart, // Swipe direction
+                                      onDismissed: (direction) {
+                                        var oldSavedPassword =
+                                            SaveGeneratedPasswordModel(
+                                                userName: state
+                                                    .savedPasswords[index]
+                                                    .userName,
+                                                chosenIndex: state
+                                                    .savedPasswords[index]
+                                                    .chosenIndex,
+                                                id: state
+                                                    .savedPasswords[index].id,
+                                                generatedPassword: state
+                                                    .savedPasswords[index]
+                                                    .generatedPassword,
+                                                date: state
+                                                    .savedPasswords[index].date,
+                                                time: state
+                                                    .savedPasswords[index].time,
+                                                category: state
+                                                    .savedPasswords[index]
+                                                    .category);
+                  
+                                        BlocProvider.of<SaveGeneratedDataBloc>(
+                                                context)
+                                            .add(DeleteOldPassword(
+                                                modelListofSavedPassword:
+                                                    oldSavedPassword));
+                                      },
+                                      child: Card(
+                                        shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(15.r)),
-                                      alignment: Alignment.centerRight,
-                                      padding:
-                                          const EdgeInsets.only(right: 20.0),
-                                      child: const Icon(
-                                        Icons.delete,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    direction: DismissDirection
-                                        .endToStart, // Swipe direction
-                                    onDismissed: (direction) {
-                                      var oldSavedPassword =
-                                          SaveGeneratedPasswordModel(
-                                            userName: state.savedPasswords[index].userName,
-                                              choosedIndex: state
-                                                  .savedPasswords[index]
-                                                  .choosedIndex,
-                                              id: state
-                                                  .savedPasswords[index].id,
-                                              generatedPassword: state
-                                                  .savedPasswords[index]
-                                                  .generatedPassword,
-                                              date: state
-                                                  .savedPasswords[index].date,
-                                              time: state
-                                                  .savedPasswords[index].time,
-                                              category: state
-                                                  .savedPasswords[index]
-                                                  .category);
-
-                                      BlocProvider.of<SaveGeneratedDataBloc>(
-                                              context)
-                                          .add(DeleteOldPassword(
-                                              modelListofSavedPassword:
-                                                  oldSavedPassword));
-                                    },
-                                    child: Card(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
-                                      ),
-                                      child: SizedBox(
-                                        height: 100.h,
-                                        width: double.infinity,
-                                        child: Padding(
-                                          padding: EdgeInsets.all(15.sp),
-                                          child: Row(
-                                            children: [
-                                              state.savedPasswords[index]
-                                                          .choosedIndex ==
-                                                      -1
-                                                  ? Expanded(
-                                                      child: Container(
-                                                      height: 50.h,
-                                                      width: 50.h,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.amber,
-                                                          shape:
-                                                              BoxShape.circle),
-                                                    ))
-                                                  : Expanded(
-                                                      child: SvgPicture.asset(
-                                                          listOficonsImage[state
-                                                              .savedPasswords[
-                                                                  index]
-                                                              .choosedIndex])),
-                                              Expanded(
-                                                flex: 5,
-                                                child: Padding(
-                                                  padding:  EdgeInsets.only(left:15.w),
-                                                  child: Column(
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          Expanded(
-                                                            flex: 3,
-                                                            child: Text(
-                                                              passwordData
-                                                                  .generatedPassword,
-                                                              style: const TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
+                                              BorderRadius.circular(15.0),
+                                        ),
+                                        child: SizedBox(
+                                          height: 110.h,
+                                          width: double.infinity,
+                                          child: Padding(
+                                            padding: EdgeInsets.all(15.sp),
+                                            child: Row(
+                                              children: [
+                                                state.savedPasswords[index]
+                                                            .chosenIndex ==
+                                                        -1
+                                                    ? Expanded(
+                                                        child: Container(
+                                                        height: 50.h,
+                                                        width: 50.h,
+                                                        decoration: BoxDecoration(
+                                                            image: DecorationImage(
+                                                                image: AssetImage(
+                                                                    AppIcons
+                                                                        .appLogo),
+                                                                fit: BoxFit
+                                                                    .contain),
+                                                            color:
+                                                                Color(0xFF1C0141),
+                                                            shape:
+                                                                BoxShape.circle),
+                                                      ))
+                                                    : Expanded(
+                                                        child: Container(
+                                                        height: 50.h,
+                                                        width: 50.w,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                        ),
+                                                        child: SvgPicture.asset(
+                                                            listOficonsImage[state
+                                                                .savedPasswords[
+                                                                    index]
+                                                                .chosenIndex]),
+                                                      )),
+                                                Expanded(
+                                                  flex: 5,
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 15.w),
+                                                    child: Column(
+                                                      children: [
+                                                        Row(
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 3,
+                                                              child: Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    passwordData
+                                                                        .userName,
+                                                                    presetFontSizes: [
+                                                                      18.sp,
+                                                                      15.sp,
+                                                                      10.sp
+                                                                    ],
+                                                                    maxLines: 1,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    height: 5.h,
+                                                                  ),
+                                                                  AutoSizeText(
+                                                                    passwordData
+                                                                        .generatedPassword,
+                                                                    presetFontSizes: [
+                                                                      15.sp,
+                                                                      12.sp,
+                                                                      10.sp
+                                                                    ],
+                                                                    maxLines: 1,
+                                                                    style: TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .w200),
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
-                                                          ),
-                                                          Expanded(
-                                                            flex: 1,
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () {
-                                                                copyToClipboard(state
-                                                                    .savedPasswords[
-                                                                        index]
-                                                                    .generatedPassword);
-                                                              },
-                                                              child: SvgPicture
-                                                                  .asset(AppIcons
-                                                                      .copyIcon),
+                                                            Expanded(
+                                                              flex: 1,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  copyToClipboard(state
+                                                                      .savedPasswords[
+                                                                          index]
+                                                                      .generatedPassword);
+                                                                },
+                                                                child: SvgPicture
+                                                                    .asset(AppIcons
+                                                                        .copyIcon),
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      SizedBox(height: 20.h),
-                                                      Row(
-                                                        children: [
-                                                          Expanded(
-                                                            flex: 3,
-                                                            child: Text(
-                                                                passwordData
-                                                                    .date),
-                                                          ),
-                                                          Expanded(
-                                                            flex: 1,
-                                                            child: Text(
-                                                                passwordData
-                                                                    .time),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 20.h),
+                                                        Row(
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 3,
+                                                              child: Text(
+                                                                  passwordData
+                                                                      .date),
+                                                            ),
+                                                            Expanded(
+                                                              flex: 1,
+                                                              child: Text(
+                                                                  passwordData
+                                                                      .time),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                          ))
-                    ],
+                                    );
+                                  },
+                                );
+                              },
+                            ))
+                      ],
+                    ),
                   ),
                 ))
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialogBoxShowingCompenentToSavePassword(context,'',false,false,false,false,true);
+        },
+        backgroundColor: Color(0xFF4FD1D9),
+        child: Icon(Icons.add),
       ),
     );
   }

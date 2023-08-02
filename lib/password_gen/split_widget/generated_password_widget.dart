@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,26 +28,30 @@ class GeneratedPasswordStringWidget extends StatelessWidget {
               Expanded(
                 flex: 5,
                 child: Padding(
-                  padding: EdgeInsets.only(left:generatedPassword ==''?25.w: 35.w),
-                  child: Text(
+                  padding: EdgeInsets.only(
+                      left: generatedPassword == '' ? 25.w : 35.w),
+                  child: AutoSizeText(
                     generatedPassword == ''
                         ? 'Ready To Generate Password?'
                         : generatedPassword,
+                    presetFontSizes: [22.sp, 18.sp, 15.sp],
+                    maxLines: 1,
                     style: TextStyle(
-                      fontSize: 22.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black54,
                     ),
                   ),
                 ),
               ),
-             generatedPassword != ''? Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                      onTap: () {
-                        ongeneratedPasswordChanged('');
-                      },
-                      child: const Icon(Icons.close))):const SizedBox()
+              generatedPassword != ''
+                  ? Expanded(
+                      flex: 1,
+                      child: GestureDetector(
+                          onTap: () {
+                            ongeneratedPasswordChanged('');
+                          },
+                          child: const Icon(Icons.close)))
+                  : const SizedBox()
             ],
           ),
         ),

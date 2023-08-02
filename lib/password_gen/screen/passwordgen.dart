@@ -162,7 +162,9 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                               _isLowerCase,
                               _isUpperCase,
                               _isnumbers,
-                              _isSpecialCharacters);
+                              _isSpecialCharacters,
+                              false
+                              );
                         }
                       },
                       currentPasswordLength: _currentPasswordLength,
