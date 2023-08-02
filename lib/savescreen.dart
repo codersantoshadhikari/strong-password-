@@ -145,7 +145,7 @@ class _SaveScreenState extends State<SaveScreen> {
                                                   .savedPasswords[index].time,
                                               category: state
                                                   .savedPasswords[index]
-                                                  .category);
+                                                  .category, chosenIndex: null);
 
                                       BlocProvider.of<SaveGeneratedDataBloc>(
                                               context)

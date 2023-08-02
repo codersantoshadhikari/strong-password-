@@ -28,6 +28,7 @@ dependencies:
   intl: ^0.18.1
   flutter_launcher_icons: ^0.13.1
   drop_shadow: ^0.1.0
+  auto_size_text: ^3.0.0
   # timer_builder: ^2.0.0
   
 

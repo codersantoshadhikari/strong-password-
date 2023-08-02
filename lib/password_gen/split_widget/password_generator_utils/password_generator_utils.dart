@@ -54,7 +54,7 @@ class PasswordGeneratorUtils {
     bool _specialCharacters,
     SaveGeneratedDataBloc bloc,
     int choosedImageIndex,
-    String userName
+    String userName,
   ) {
     if (generatedPassword.isNotEmpty) {
       List<String> category = [];
@@ -79,7 +79,7 @@ class PasswordGeneratorUtils {
           time: DateFormat('hh:mm a').format(DateTime.now()),
           category: "null",
           userName: userName,
-          choosedIndex:choosedImageIndex);
+          chosenIndex:choosedImageIndex);
       bloc.add(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );

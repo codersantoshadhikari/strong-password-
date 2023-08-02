@@ -8,7 +8,7 @@ class SaveGeneratedPasswordModel extends Equatable {
   final String time;
   final String category;
   final String userName;
-  final int choosedIndex;
+  final int chosenIndex;
 
   const SaveGeneratedPasswordModel({
     required this.id,
@@ -16,26 +16,28 @@ class SaveGeneratedPasswordModel extends Equatable {
     required this.date,
     required this.time,
     required this.category,
-    required this.choosedIndex,
-    required this.userName
+    required this.chosenIndex,
+    required this.userName, required choosedIndex,
   });
-  SaveGeneratedPasswordModel copyWith(
-      {String? id,
-      String? generatedPassword,
-      String? date,
-      String? time,
-      String? category,
-      int? choosedIndex,
-      String? userName}) {
+
+  SaveGeneratedPasswordModel copyWith({
+    String? id,
+    String? generatedPassword,
+    String? date,
+    String? time,
+    String? category,
+    int? chosenIndex,
+    String? userName,
+  }) {
     return SaveGeneratedPasswordModel(
-        id: id ?? this.id,
-        generatedPassword: generatedPassword ?? this.generatedPassword,
-        date: date ?? this.date,
-        time: time ?? this.time,
-        category: category ?? this.category,
-        choosedIndex: choosedIndex?? this.choosedIndex,
-        userName:userName??this.userName
-        );
+      id: id ?? this.id,
+      generatedPassword: generatedPassword ?? this.generatedPassword,
+      date: date ?? this.date,
+      time: time ?? this.time,
+      category: category ?? this.category,
+      chosenIndex: chosenIndex ?? this.chosenIndex,
+      userName: userName ?? this.userName,
+    );
   }
 
   Map<String, dynamic> toMap() {
@@ -45,7 +47,8 @@ class SaveGeneratedPasswordModel extends Equatable {
       'date': date,
       'time': time,
       'category': category,
-      'userName':userName
+      'userName': userName,
+      'chosenIndex':chosenIndex
     };
   }
 
@@ -57,10 +60,10 @@ class SaveGeneratedPasswordModel extends Equatable {
       time: map['time'] ?? '',
       category: map['category'] ?? '',
       userName: map['userName'] ?? '',
-      choosedIndex: map['choosedIndex']?? -1
+      chosenIndex: map['chosenIndex'] ?? -1,
     );
   }
 
   @override
-  List<Object?> get props => [id, generatedPassword, date, time, category];
+  List<Object?> get props => [id, generatedPassword, date, time, category,userName,chosenIndex];
 }
