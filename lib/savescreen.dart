@@ -1,5 +1,9 @@
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
+
+// import 'dart:js_interop';
 
 import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
+import 'package:fast_pw_manager/password_gen/save_password_component/save_password_component_alert_dialougebox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,6 +54,7 @@ class _SaveScreenState extends State<SaveScreen> {
               child: Transform.rotate(
                 angle:
                     -0.4, // Adjust the angle as per your requirement (in radians)
+                // ignore: duplicate_ignore
                 child: SvgPicture.asset(
                   AppIcons.backGroundDecIcon,
                   height: 70,
@@ -125,6 +130,10 @@ class _SaveScreenState extends State<SaveScreen> {
                                     onDismissed: (direction) {
                                       var oldSavedPassword =
                                           SaveGeneratedPasswordModel(
+                                            userName: state.savedPasswords[index].userName,
+                                              choosedIndex: state
+                                                  .savedPasswords[index]
+                                                  .choosedIndex,
                                               id: state
                                                   .savedPasswords[index].id,
                                               generatedPassword: state
@@ -154,49 +163,82 @@ class _SaveScreenState extends State<SaveScreen> {
                                         width: double.infinity,
                                         child: Padding(
                                           padding: EdgeInsets.all(15.sp),
-                                          child: Column(
+                                          child: Row(
                                             children: [
-                                              Row(
-                                                children: [
-                                                  Expanded(
-                                                    flex: 3,
-                                                    child: Text(
-                                                      passwordData
-                                                          .generatedPassword,
-                                                      style: const TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    flex: 1,
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        copyToClipboard(state
-                                                            .savedPasswords[
-                                                                index]
-                                                            .generatedPassword);
-                                                      },
+                                              state.savedPasswords[index]
+                                                          .choosedIndex ==
+                                                      -1
+                                                  ? Expanded(
+                                                      child: Container(
+                                                      height: 50.h,
+                                                      width: 50.h,
+                                                      decoration: BoxDecoration(
+                                                          color: Colors.amber,
+                                                          shape:
+                                                              BoxShape.circle),
+                                                    ))
+                                                  : Expanded(
                                                       child: SvgPicture.asset(
-                                                          AppIcons.copyIcon),
-                                                    ),
+                                                          listOficonsImage[state
+                                                              .savedPasswords[
+                                                                  index]
+                                                              .choosedIndex])),
+                                              Expanded(
+                                                flex: 5,
+                                                child: Padding(
+                                                  padding:  EdgeInsets.only(left:15.w),
+                                                  child: Column(
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 3,
+                                                            child: Text(
+                                                              passwordData
+                                                                  .generatedPassword,
+                                                              style: const TextStyle(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 1,
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                copyToClipboard(state
+                                                                    .savedPasswords[
+                                                                        index]
+                                                                    .generatedPassword);
+                                                              },
+                                                              child: SvgPicture
+                                                                  .asset(AppIcons
+                                                                      .copyIcon),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(height: 20.h),
+                                                      Row(
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 3,
+                                                            child: Text(
+                                                                passwordData
+                                                                    .date),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 1,
+                                                            child: Text(
+                                                                passwordData
+                                                                    .time),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
-                                              SizedBox(height: 20.h),
-                                              Row(
-                                                children: [
-                                                  Expanded(
-                                                    flex: 3,
-                                                    child:
-                                                        Text(passwordData.date),
-                                                  ),
-                                                  Expanded(
-                                                    flex: 1,
-                                                    child:
-                                                        Text(passwordData.time),
-                                                  ),
-                                                ],
+                                                ),
                                               ),
                                             ],
                                           ),
