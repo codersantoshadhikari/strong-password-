@@ -7,7 +7,7 @@ import 'package:fast_pw_manager/password_gen/split_widget/gen_password_widget.da
 import 'package:fast_pw_manager/password_gen/split_widget/generated_password_widget.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/password_option/password_option_widget.dart';
-import 'package:fast_pw_manager/routes/routes.dart';
+// import 'package:fast_pw_manager/routes/routes.dart';
 
 import '../../custom_widgets/alert_dialouge/alert_dialouge.dart';
 import '../bloc/save_generated_data_bloc.dart';
@@ -243,16 +243,17 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
     PasswordGeneratorUtils.copyToClipboard(generatedPassword);
   }
 
-  void savePassword() {
-    PasswordGeneratorUtils.savePassword(
-      generatedPassword,
-      _isUpperCase,
-      _isLowerCase,
-      _isnumbers,
-      _isSpecialCharacters,
-      BlocProvider.of<SaveGeneratedDataBloc>(context),
-    );
+  // void savePassword() {
+  //   PasswordGeneratorUtils.savePassword(
+  //     generatedPassword,
+  //     _isUpperCase,
+  //     _isLowerCase,
+  //     _isnumbers,
+  //     _isSpecialCharacters,
+  //     BlocProvider.of<SaveGeneratedDataBloc>(context),
+  //     0
+  //   );
 
-    Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
-  }
+  //   Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
+  // }
 }

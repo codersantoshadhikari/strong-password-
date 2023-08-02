@@ -14,6 +14,7 @@ class PasswordGeneratorUtils {
     bool isLowerCase = true,
     bool isNumbers = false,
     bool isSpecialCharacters = false,
+
   }) {
     final random = Random();
     String charset = '';
@@ -52,6 +53,8 @@ class PasswordGeneratorUtils {
     bool _numbers,
     bool _specialCharacters,
     SaveGeneratedDataBloc bloc,
+    int choosedImageIndex,
+    String userName
   ) {
     if (generatedPassword.isNotEmpty) {
       List<String> category = [];
@@ -74,7 +77,9 @@ class PasswordGeneratorUtils {
           generatedPassword: generatedPassword,
           date: DateTime.now().toString().split(' ').first,
           time: DateFormat('hh:mm a').format(DateTime.now()),
-          category: category);
+          category: "null",
+          userName: userName,
+          choosedIndex:choosedImageIndex);
       bloc.add(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );

@@ -4,6 +4,7 @@ import 'package:drop_shadow/drop_shadow.dart';
 import 'package:fast_pw_manager/custom_widgets/text_field/custom_textfield.dart';
 import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
 import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
+import 'package:fast_pw_manager/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants/app_icons.dart';
 import '../../custom_widgets/elevated_button/custom_eleveted_button.dart';
-
+List<String> listOficonsImage = [
+    AppIcons.googleIcon,
+    AppIcons.facebookIcon,
+    AppIcons.instagramIcon,
+    AppIcons.twitterIcon,
+    AppIcons.figmaIcon,
+    AppIcons.linkedinIcon,
+    AppIcons.githubIcon,
+    AppIcons.dockerIcon
+  ];
 class SavePasswordComponentAlert extends StatefulWidget {
   const SavePasswordComponentAlert(
       {super.key,
@@ -33,20 +43,10 @@ class SavePasswordComponentAlert extends StatefulWidget {
 
 class _SavePasswordComponentAlertState
     extends State<SavePasswordComponentAlert> {
-  // GlobalKey<FormState> savePasswordKey = GlobalKey<FormState>();
   int choosedImageIndex = -1;
   TextEditingController userNameorId = TextEditingController();
   TextEditingController password = TextEditingController();
-  List<String> listOficonsImage = [
-    AppIcons.googleIcon,
-    AppIcons.facebookIcon,
-    AppIcons.instagramIcon,
-    AppIcons.twitterIcon,
-    AppIcons.figmaIcon,
-    AppIcons.linkedinIcon,
-    AppIcons.githubIcon,
-    AppIcons.dockerIcon
-  ];
+  
   @override
   void initState() {
     super.initState();
@@ -207,9 +207,13 @@ class _SavePasswordComponentAlertState
                       widget.isLowerCase,
                       widget.isnumbers,
                       widget.isSpecialCharacters,
-                      BlocProvider.of<SaveGeneratedDataBloc>(context));
+                      BlocProvider.of<SaveGeneratedDataBloc>(context),
+                      choosedImageIndex,
+                      userNameorId.text);
                   // }
-                  // Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pushNamed(
+                      context, Routes.saveGeneratedPassWordScreen);
                 },
                 text1: 'Save',
                 bgColor: const Color(0xFF4FD1D9),
