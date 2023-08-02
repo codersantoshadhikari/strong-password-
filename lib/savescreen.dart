@@ -59,7 +59,7 @@ class _SaveScreenState extends State<SaveScreen> {
                   AppIcons.backGroundDecIcon,
                   height: 70,
                   width: 90,
-                  // ignore: deprecated_member_use
+                  
                   color: const Color(0xFF1C274C).withOpacity(0.3),
                 ),
               ),
