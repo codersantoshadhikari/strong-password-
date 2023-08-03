@@ -79,7 +79,7 @@ class PasswordGeneratorUtils {
           time: DateFormat('hh:mm a').format(DateTime.now()),
           category: "null",
           userName: userName,
-          chosenIndex:choosedImageIndex);
+          chosenIndex:choosedImageIndex, choosedIndex: null);
       bloc.add(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );

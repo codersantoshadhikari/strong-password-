@@ -47,7 +47,7 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
           generatedPassword: widget.passwordData.generatedPassword,
           date: widget.passwordData.date,
           time: widget.passwordData.time,
-          category: widget.passwordData.category,
+          category: widget.passwordData.category, choosedIndex: null,
         );
 
         BlocProvider.of<SaveGeneratedDataBloc>(context).add(DeleteOldPassword(

@@ -36,7 +36,7 @@ class SaveGeneratedPasswordModel extends Equatable {
       time: time ?? this.time,
       category: category ?? this.category,
       chosenIndex: chosenIndex ?? this.chosenIndex,
-      userName: userName ?? this.userName,
+      userName: userName ?? this.userName, choosedIndex: null,
     );
   }
 
@@ -60,7 +60,7 @@ class SaveGeneratedPasswordModel extends Equatable {
       time: map['time'] ?? '',
       category: map['category'] ?? '',
       userName: map['userName'] ?? '',
-      chosenIndex: map['chosenIndex'] ?? -1,
+      chosenIndex: map['chosenIndex'] ?? -1, choosedIndex: null,
     );
   }
 

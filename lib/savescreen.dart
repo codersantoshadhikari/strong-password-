@@ -3,7 +3,8 @@
 // import 'dart:js_interop';
 
 import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
-import 'package:fast_pw_manager/password_gen/save_password_component/save_password_component_alert_dialougebox.dart';
+
+import 'package:fast_pw_manager/password_gen/show_alert_dialouge/save_password_component_alert_dialougebox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,7 +60,6 @@ class _SaveScreenState extends State<SaveScreen> {
                   AppIcons.backGroundDecIcon,
                   height: 70,
                   width: 90,
-                  
                   color: const Color(0xFF1C274C).withOpacity(0.3),
                 ),
               ),
@@ -130,10 +130,12 @@ class _SaveScreenState extends State<SaveScreen> {
                                     onDismissed: (direction) {
                                       var oldSavedPassword =
                                           SaveGeneratedPasswordModel(
-                                            userName: state.savedPasswords[index].userName,
+                                              userName: state
+                                                  .savedPasswords[index]
+                                                  .userName,
                                               choosedIndex: state
                                                   .savedPasswords[index]
-                                                  .choosedIndex,
+                                                  .chosenIndex,
                                               id: state
                                                   .savedPasswords[index].id,
                                               generatedPassword: state
@@ -145,7 +147,9 @@ class _SaveScreenState extends State<SaveScreen> {
                                                   .savedPasswords[index].time,
                                               category: state
                                                   .savedPasswords[index]
-                                                  .category, chosenIndex: null);
+                                                  .category,
+                                              chosenIndex: int.fromEnvironment(
+                                                  Null as String));
 
                                       BlocProvider.of<SaveGeneratedDataBloc>(
                                               context)
@@ -166,7 +170,7 @@ class _SaveScreenState extends State<SaveScreen> {
                                           child: Row(
                                             children: [
                                               state.savedPasswords[index]
-                                                          .choosedIndex ==
+                                                          .chosenIndex ==
                                                       -1
                                                   ? Expanded(
                                                       child: Container(
@@ -182,11 +186,12 @@ class _SaveScreenState extends State<SaveScreen> {
                                                           listOficonsImage[state
                                                               .savedPasswords[
                                                                   index]
-                                                              .choosedIndex])),
+                                                              .chosenIndex])),
                                               Expanded(
                                                 flex: 5,
                                                 child: Padding(
-                                                  padding:  EdgeInsets.only(left:15.w),
+                                                  padding: EdgeInsets.only(
+                                                      left: 15.w),
                                                   child: Column(
                                                     children: [
                                                       Row(
