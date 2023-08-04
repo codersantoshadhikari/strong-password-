@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:drop_shadow/drop_shadow.dart';
-import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
-import 'package:fast_pw_manager/password_gen/show_alert_dialouge/split_widget/action_button_widget.dart';
-import 'package:fast_pw_manager/password_gen/show_alert_dialouge/split_widget/form_fields.dart';
-import 'package:fast_pw_manager/password_gen/show_alert_dialouge/split_widget/social_media_icons.dart';
-import 'package:fast_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
-import 'package:fast_pw_manager/routes/routes.dart';
+import 'package:flash_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
+import 'package:flash_pw_manager/password_gen/show_alert_dialouge/split_widget/action_button_widget.dart';
+import 'package:flash_pw_manager/password_gen/show_alert_dialouge/split_widget/form_fields.dart';
+import 'package:flash_pw_manager/password_gen/show_alert_dialouge/split_widget/social_media_icons.dart';
+import 'package:flash_pw_manager/password_gen/split_widget/password_generator_utils/password_generator_utils.dart';
+import 'package:flash_pw_manager/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

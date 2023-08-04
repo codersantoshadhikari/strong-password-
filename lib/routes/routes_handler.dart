@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 // import 'package:fast_pw_manager/home/screen/home_screen.dart';
-import 'package:fast_pw_manager/password_gen/screen/passwordgen.dart';
-import 'package:fast_pw_manager/routes/routes.dart';
-import 'package:fast_pw_manager/saved_password_view/screen/savescreen.dart';
-import 'package:fast_pw_manager/splash_screen/screen/splash_screen.dart';
+import 'package:flash_pw_manager/password_gen/screen/passwordgen.dart';
+import 'package:flash_pw_manager/routes/routes.dart';
+import 'package:flash_pw_manager/saved_password_view/screen/savescreen.dart';
+import 'package:flash_pw_manager/splash_screen/screen/splash_screen.dart';
 
 class RouteHandler {
   static Route<dynamic>? handlerRoute(RouteSettings settings) {

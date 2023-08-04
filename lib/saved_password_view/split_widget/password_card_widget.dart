@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:fast_pw_manager/constants/app_icons.dart';
-import 'package:fast_pw_manager/model/save_password_model.dart';
-import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
-import 'package:fast_pw_manager/password_gen/show_alert_dialouge/save_password_component_alert_dialougebox.dart';
+import 'package:flash_pw_manager/constants/app_icons.dart';
+import 'package:flash_pw_manager/model/save_password_model.dart';
+import 'package:flash_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
+import 'package:flash_pw_manager/password_gen/show_alert_dialouge/save_password_component_alert_dialougebox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

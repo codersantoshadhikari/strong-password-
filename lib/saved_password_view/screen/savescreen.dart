@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:fast_pw_manager/constants/app_icons.dart';
-import 'package:fast_pw_manager/custom_widgets/alert_dialouge/alert_dialouge.dart';
-import 'package:fast_pw_manager/saved_password_view/split_widget/password_list_widget.dart';
+import 'package:flash_pw_manager/constants/app_icons.dart';
+import 'package:flash_pw_manager/custom_widgets/alert_dialouge/alert_dialouge.dart';
+import 'package:flash_pw_manager/saved_password_view/split_widget/password_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

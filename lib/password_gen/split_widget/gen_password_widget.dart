@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fast_pw_manager/constants/app_icons.dart';
+import 'package:flash_pw_manager/constants/app_icons.dart';
 
 class GeneratePasswordWidget extends StatelessWidget {
   const GeneratePasswordWidget({super.key, required this.generatePassword});

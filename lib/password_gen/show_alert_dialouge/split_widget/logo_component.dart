@@ -1,4 +1,4 @@
-import 'package:fast_pw_manager/constants/app_icons.dart';
+import 'package:flash_pw_manager/constants/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/flutter_svg.dart';

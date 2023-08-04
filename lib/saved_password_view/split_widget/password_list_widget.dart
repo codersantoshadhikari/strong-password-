@@ -2,8 +2,8 @@
 
 // ignore_for_file: prefer_const_constructors
 
-import 'package:fast_pw_manager/saved_password_view/split_widget/password_list_header_widget.dart';
-import 'package:fast_pw_manager/saved_password_view/split_widget/password_list_view_widget.dart';
+import 'package:flash_pw_manager/saved_password_view/split_widget/password_list_header_widget.dart';
+import 'package:flash_pw_manager/saved_password_view/split_widget/password_list_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:fast_pw_manager/enum/password_saved_status.dart';
-import 'package:fast_pw_manager/model/save_password_model.dart';
+import 'package:flash_pw_manager/enum/password_saved_status.dart';
+import 'package:flash_pw_manager/model/save_password_model.dart';
 
 part 'save_generated_data_event.dart';
 part 'save_generated_data_state.dart';

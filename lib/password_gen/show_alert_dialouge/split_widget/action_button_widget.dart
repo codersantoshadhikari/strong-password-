@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:fast_pw_manager/custom_widgets/elevated_button/custom_eleveted_button.dart';
+import 'package:flash_pw_manager/custom_widgets/elevated_button/custom_eleveted_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

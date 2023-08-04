@@ -1,5 +1,5 @@
-import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
-import 'package:fast_pw_manager/saved_password_view/split_widget/password_card_widget.dart';
+import 'package:flash_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
+import 'package:flash_pw_manager/saved_password_view/split_widget/password_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

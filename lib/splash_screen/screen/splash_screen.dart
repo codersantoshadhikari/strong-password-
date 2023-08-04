@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fast_pw_manager/splash_screen/split_widget/button_widget.dart';
-import 'package:fast_pw_manager/splash_screen/split_widget/logo_widget.dart';
+import 'package:flash_pw_manager/splash_screen/split_widget/button_widget.dart';
+import 'package:flash_pw_manager/splash_screen/split_widget/logo_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
