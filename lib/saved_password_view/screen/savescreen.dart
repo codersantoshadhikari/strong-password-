@@ -22,7 +22,7 @@ class SaveedPasswordScreenWidget extends StatelessWidget {
               right: -40.w,
               child: SizedBox(
                 width: 180.w,
-                height: 180.h,
+                height: 200.h,
                 child: Image.asset(
                   AppIcons.backGroundDecImage,
                   fit: BoxFit.fill,
@@ -33,7 +33,8 @@ class SaveedPasswordScreenWidget extends StatelessWidget {
               top: 19.h,
               left: 25.w,
               child: Transform.rotate(
-                angle: -0.4, // Adjust the angle as per your requirement (in radians)
+                angle:
+                    -0.4, // Adjust the angle as per your requirement (in radians)
                 child: SvgPicture.asset(
                   AppIcons.backGroundDecIcon,
                   height: 70,
@@ -48,7 +49,8 @@ class SaveedPasswordScreenWidget extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDialogBoxShowingCompenentToSavePassword(context, '', false, false, false, false, true);
+          showDialogBoxShowingCompenentToSavePassword(
+              context, '', false, false, false, false, true);
         },
         backgroundColor: const Color(0xFF4FD1D9),
         child: const Icon(Icons.add),
