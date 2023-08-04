@@ -31,7 +31,6 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   String generatedPassword = '';
 
   final TextEditingController _lengthController = TextEditingController();
-  
 
   @override
   void initState() {
@@ -41,10 +40,10 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,8 +162,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                               _isUpperCase,
                               _isnumbers,
                               _isSpecialCharacters,
-                              false
-                              );
+                              false);
                         }
                       },
                       currentPasswordLength: _currentPasswordLength,
@@ -243,6 +241,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
 
   void copyToClipboard() {
     PasswordGeneratorUtils.copyToClipboard(generatedPassword);
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text("Copied")));
   }
 
   // void savePassword() {

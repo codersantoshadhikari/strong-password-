@@ -24,18 +24,21 @@ class GeneratedPasswordStringWidget extends StatelessWidget {
         ),
         child: Center(
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 flex: 5,
                 child: Padding(
-                  padding: EdgeInsets.only(
-                      left: generatedPassword == '' ? 25.w : 35.w),
+                  padding: generatedPassword == ''
+                      ? EdgeInsets.zero
+                      : EdgeInsets.only(left: 35.w),
                   child: AutoSizeText(
                     generatedPassword == ''
                         ? 'Ready To Generate Password?'
                         : generatedPassword,
                     presetFontSizes: [22.sp, 18.sp, 15.sp],
                     maxLines: 1,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black54,

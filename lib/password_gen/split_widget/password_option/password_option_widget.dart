@@ -73,12 +73,14 @@ class _PasswordOptionChooseWidgetState
                   color: Colors.white,
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(flex: 2, child: Text("Length : ")),
                       Expanded(
-                          flex: 8,
+                          flex: 7,
                           child: Slider(
                             activeColor: const Color(0xFF4FD1D9),
                             inactiveColor: const Color(0xFFD9F3F9),
@@ -103,7 +105,7 @@ class _PasswordOptionChooseWidgetState
                                 '${widget.currentPasswordLength.toInt()}', // Display the current value as a label
                           )),
                       Expanded(
-                        flex: 1,
+                        flex: 2,
                         child: Text(
                           '${widget.currentPasswordLength.toInt()}',
                           style: TextStyle(
@@ -194,10 +196,21 @@ class _PasswordOptionChooseWidgetState
                           MaterialStateProperty.all(const Color(0xFFFFFFFF)),
                     ),
                     onPressed: widget.copyToClipboard,
-                    child: const Center(
-                      child: Text(
-                        'Copy \t\t+',
-                        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                    child: Center(
+                      child: Row(
+                        children: [
+                          Text(
+                            'Copy',
+                            style:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                          ),
+                          SizedBox(width: 5.w),
+                          Icon(
+                            Icons.copy,
+                            size: 13.sp,
+                            color: Colors.black,
+                          )
+                        ],
                       ),
                     ),
                   ),
