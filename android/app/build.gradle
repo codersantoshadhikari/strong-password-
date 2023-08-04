@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "com.example.fast_pw_manager"
+    namespace "com.santoshadhikari.flashpasswordmanager"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
