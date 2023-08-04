@@ -59,7 +59,7 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: SizedBox(
-          height: 120.h,
+          height: 140.h,
           width: double.infinity,
           child: Padding(
             padding: EdgeInsets.all(15.sp),
