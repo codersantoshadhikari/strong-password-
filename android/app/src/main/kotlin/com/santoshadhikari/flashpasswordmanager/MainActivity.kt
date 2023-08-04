@@ -1,4 +1,4 @@
-package com.example.fast_pw_manager
+package com.santoshadhikari.flashpasswordmanager
 
 import io.flutter.embedding.android.FlutterActivity
 
