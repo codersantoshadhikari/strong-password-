@@ -57,14 +57,13 @@ class _SavePasswordComponentAlertState
   final FocusNode _userNameFocusNode = FocusNode();
   final FocusNode _socialMediaNameFocusNode = FocusNode();
 
-
   @override
   void initState() {
     super.initState();
     password.text = widget.generatedPassword;
   }
 
-void _onIconSelected(int index) {
+  void _onIconSelected(int index) {
     setState(() {
       choosedImageIndex = index;
     });
@@ -81,21 +80,22 @@ void _onIconSelected(int index) {
 
   @override
   Widget build(BuildContext context) {
-   return DropShadow(
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Padding(
-          padding:  EdgeInsets.only(top:150.h,left: 10.w),
+    return DropShadow(
+      child: Center(
+        child: SingleChildScrollView(
+          reverse: true,
+          physics: BouncingScrollPhysics(),
           child: AlertDialog(
+            alignment: Alignment.bottomCenter,
             backgroundColor: const Color(0xFFF7F8FA),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20.r)),
             ),
+            actionsAlignment: MainAxisAlignment.center,
             actions: [
-              Padding(
-                padding: EdgeInsets.only(right: 100.w),
-                child: choosedImageIndex == -1
-                    ? Container(
+              choosedImageIndex == -1
+                  ? Center(
+                      child: Container(
                         height: 50.h,
                         width: 50.w,
                         decoration: BoxDecoration(
@@ -105,15 +105,18 @@ void _onIconSelected(int index) {
                             shape: BoxShape.circle,
                             border: Border.all(
                                 width: 2.w, color: const Color(0xFF4FD1D9))),
-                      )
-                    : SizedBox(
+                      ),
+                    )
+                  : Center(
+                      child: SizedBox(
                         height: 50.h,
                         width: 50.w,
-                        child: SvgPicture.asset(listOficonsImage[choosedImageIndex]),
+                        child: SvgPicture.asset(
+                            listOficonsImage[choosedImageIndex]),
                       ),
-              ),
+                    ),
               FormFieldWidget(
-                selectedIconIndex:choosedImageIndex,
+                selectedIconIndex: choosedImageIndex,
                 socialMediaNameController: socialMediaName,
                 socialmediaNameFocusNode: _socialMediaNameFocusNode,
                 userNameController: userNameorId,
@@ -133,19 +136,19 @@ void _onIconSelected(int index) {
                   _passwordFocusNode.unfocus();
                   _userNameFocusNode.unfocus();
                   PasswordGeneratorUtils.savePassword(
-                    password.text,
-                    widget.isUpperCase,
-                    widget.isLowerCase,
-                    widget.isnumbers,
-                    widget.isSpecialCharacters,
-                    BlocProvider.of<SaveGeneratedDataBloc>(context),
-                    choosedImageIndex,
-                    userNameorId.text,
-                     socialMediaName.text
-                  );
+                      password.text,
+                      widget.isUpperCase,
+                      widget.isLowerCase,
+                      widget.isnumbers,
+                      widget.isSpecialCharacters,
+                      BlocProvider.of<SaveGeneratedDataBloc>(context),
+                      choosedImageIndex,
+                      userNameorId.text,
+                      socialMediaName.text);
                   Navigator.pop(context);
                   if (widget.isFloatingButtonPressed == false) {
-                    Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
+                    Navigator.pushNamed(
+                        context, Routes.saveGeneratedPassWordScreen);
                   }
                 },
               ),

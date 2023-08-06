@@ -48,7 +48,8 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
           generatedPassword: widget.passwordData.generatedPassword,
           date: widget.passwordData.date,
           time: widget.passwordData.time,
-          category: widget.passwordData.category, choosedIndex: null,
+          category: widget.passwordData.category,
+          choosedIndex: null,
         );
 
         BlocProvider.of<SaveGeneratedDataBloc>(context).add(DeleteOldPassword(
@@ -110,7 +111,7 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
                                   SizedBox(
                                     height: 5.h,
                                   ),
-                                  _isPasswordVisible
+                                  !_isPasswordVisible
                                       ? Text(
                                           "********",
                                           style: TextStyle(
@@ -172,7 +173,9 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
                           widget.passwordData.socialMediaName,
                           presetFontSizes: [15.sp, 12.sp, 10.sp],
                           maxLines: 1,
-                          style: TextStyle(fontWeight: FontWeight.w400,color: Color.fromRGBO(0, 0, 255, 0.5)),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(0, 0, 255, 0.5)),
                         ),
                         SizedBox(height: 10.h),
                         Row(
@@ -200,6 +203,6 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
   }
 
   void copyToClipboard(String generatedPassword) {
-    PasswordGeneratorUtils.copyToClipboard(generatedPassword,context);
+    PasswordGeneratorUtils.copyToClipboard(generatedPassword, context);
   }
 }
