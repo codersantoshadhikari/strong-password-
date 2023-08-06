@@ -1,11 +1,15 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'dart:math';
-import 'package:flash_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:flash_pw_manager/function/generate_unique_id.dart';
 import 'package:flash_pw_manager/model/save_password_model.dart';
+
+import '../../../custom_widgets/snackbar/snackbar.dart';
+import '../../bloc/save_generated_data_bloc.dart';
 
 class PasswordGeneratorUtils {
   static String generatePassword({
@@ -41,8 +45,24 @@ class PasswordGeneratorUtils {
     return password;
   }
 
-  static void copyToClipboard(String generatedPassword) {
+  static void copyToClipboard(String generatedPassword,BuildContext context) {
     Clipboard.setData(ClipboardData(text: generatedPassword));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          duration: Duration(seconds: 1),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          behavior: SnackBarBehavior.floating,
+          content: CustomSnackBarMessage(
+              headerText: "Done!",
+              bodyText: "Sucessfully,Copied the Password",
+              backgroundColor: Color(0xFFD9F9E1),
+              bubbleColor: Color(0xFF5FA773),
+textColor: Color(0xFF5FA773),
+              iconToShowInbubble: Icon(
+                Icons.check,
+                color: Color(0xFFFFFFFF),
+              )),
+        ));
     // Show a snackbar or toast message here if needed.
   }
 
@@ -55,6 +75,7 @@ class PasswordGeneratorUtils {
     SaveGeneratedDataBloc bloc,
     int choosedImageIndex,
     String userName,
+    String socialMediaNAme,
   ) {
     if (generatedPassword.isNotEmpty) {
       List<String> category = [];
@@ -79,7 +100,8 @@ class PasswordGeneratorUtils {
           time: DateFormat('hh:mm a').format(DateTime.now()),
           category: "null",
           userName: userName,
-          chosenIndex:choosedImageIndex, choosedIndex: null);
+          chosenIndex:choosedImageIndex,
+          socialMediaName: socialMediaNAme, choosedIndex: null);
       bloc.add(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );

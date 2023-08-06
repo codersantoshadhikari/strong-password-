@@ -51,8 +51,12 @@ class _SavePasswordComponentAlertState
   int choosedImageIndex = -1;
   TextEditingController userNameorId = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController socialMediaName = TextEditingController();
+
   final FocusNode _passwordFocusNode = FocusNode();
   final FocusNode _userNameFocusNode = FocusNode();
+  final FocusNode _socialMediaNameFocusNode = FocusNode();
+
 
   @override
   void initState() {
@@ -80,66 +84,73 @@ void _onIconSelected(int index) {
    return DropShadow(
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        child: AlertDialog(
-          backgroundColor: const Color(0xFFF7F8FA),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20.r)),
+        child: Padding(
+          padding:  EdgeInsets.only(top:150.h,left: 10.w),
+          child: AlertDialog(
+            backgroundColor: const Color(0xFFF7F8FA),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.r)),
+            ),
+            actions: [
+              Padding(
+                padding: EdgeInsets.only(right: 100.w),
+                child: choosedImageIndex == -1
+                    ? Container(
+                        height: 50.h,
+                        width: 50.w,
+                        decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                image: AssetImage(AppIcons.onlyLogo),
+                                fit: BoxFit.contain),
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                                width: 2.w, color: const Color(0xFF4FD1D9))),
+                      )
+                    : SizedBox(
+                        height: 50.h,
+                        width: 50.w,
+                        child: SvgPicture.asset(listOficonsImage[choosedImageIndex]),
+                      ),
+              ),
+              FormFieldWidget(
+                selectedIconIndex:choosedImageIndex,
+                socialMediaNameController: socialMediaName,
+                socialmediaNameFocusNode: _socialMediaNameFocusNode,
+                userNameController: userNameorId,
+                passwordController: password,
+                userNameFocusNode: _userNameFocusNode,
+                passwordFocusNode: _passwordFocusNode,
+              ),
+              SocialMediaIcons(
+                listOfIcons: listOficonsImage,
+                onIconSelected: _onIconSelected,
+              ),
+              ActionButtonWidget(
+                onCancelPressed: () {
+                  Navigator.pop(context);
+                },
+                onSavePressed: () {
+                  _passwordFocusNode.unfocus();
+                  _userNameFocusNode.unfocus();
+                  PasswordGeneratorUtils.savePassword(
+                    password.text,
+                    widget.isUpperCase,
+                    widget.isLowerCase,
+                    widget.isnumbers,
+                    widget.isSpecialCharacters,
+                    BlocProvider.of<SaveGeneratedDataBloc>(context),
+                    choosedImageIndex,
+                    userNameorId.text,
+                     socialMediaName.text
+                  );
+                  Navigator.pop(context);
+                  if (widget.isFloatingButtonPressed == false) {
+                    Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
+                  }
+                },
+              ),
+            ],
           ),
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 100.w),
-              child: choosedImageIndex == -1
-                  ? Container(
-                      height: 50.h,
-                      width: 50.w,
-                      decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              image: AssetImage(AppIcons.onlyLogo),
-                              fit: BoxFit.contain),
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              width: 2.w, color: const Color(0xFF4FD1D9))),
-                    )
-                  : SizedBox(
-                      height: 50.h,
-                      width: 50.w,
-                      child: SvgPicture.asset(listOficonsImage[choosedImageIndex]),
-                    ),
-            ),
-            FormFieldWidget(
-              userNameController: userNameorId,
-              passwordController: password,
-              userNameFocusNode: _userNameFocusNode,
-              passwordFocusNode: _passwordFocusNode,
-            ),
-            SocialMediaIcons(
-              listOfIcons: listOficonsImage,
-              onIconSelected: _onIconSelected,
-            ),
-            ActionButtonWidget(
-              onCancelPressed: () {
-                Navigator.pop(context);
-              },
-              onSavePressed: () {
-                _passwordFocusNode.unfocus();
-                _userNameFocusNode.unfocus();
-                PasswordGeneratorUtils.savePassword(
-                  password.text,
-                  widget.isUpperCase,
-                  widget.isLowerCase,
-                  widget.isnumbers,
-                  widget.isSpecialCharacters,
-                  BlocProvider.of<SaveGeneratedDataBloc>(context),
-                  choosedImageIndex,
-                  userNameorId.text,
-                );
-                Navigator.pop(context);
-                if (widget.isFloatingButtonPressed == false) {
-                  Navigator.pushNamed(context, Routes.saveGeneratedPassWordScreen);
-                }
-              },
-            ),
-          ],
         ),
       ),
     );

@@ -149,7 +149,8 @@ class _SaveScreenState extends State<SaveScreen> {
                                                   .savedPasswords[index]
                                                   .category,
                                               chosenIndex: int.fromEnvironment(
-                                                  Null as String));
+                                                  Null as String),
+                                              socialMediaName: '');
 
                                       BlocProvider.of<SaveGeneratedDataBloc>(
                                               context)
@@ -265,6 +266,6 @@ class _SaveScreenState extends State<SaveScreen> {
   }
 
   void copyToClipboard(String generatedPassword) {
-    PasswordGeneratorUtils.copyToClipboard(generatedPassword);
+    PasswordGeneratorUtils.copyToClipboard(generatedPassword, context);
   }
 }

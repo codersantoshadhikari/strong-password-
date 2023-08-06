@@ -240,9 +240,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   }
 
   void copyToClipboard() {
-    PasswordGeneratorUtils.copyToClipboard(generatedPassword);
-    ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text("Copied")));
+    PasswordGeneratorUtils.copyToClipboard(generatedPassword,context);
+    
   }
 
   // void savePassword() {
