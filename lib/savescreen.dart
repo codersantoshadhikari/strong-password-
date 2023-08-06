@@ -114,7 +114,8 @@ class _SaveScreenState extends State<SaveScreen> {
                                     key: UniqueKey(),
                                     background: Container(
                                       decoration: BoxDecoration(
-                                          color: const Color(0xCCDC4E59),
+                                          color:
+                                              Color.fromARGB(204, 166, 11, 228),
                                           borderRadius:
                                               BorderRadius.circular(15.r)),
                                       alignment: Alignment.centerRight,

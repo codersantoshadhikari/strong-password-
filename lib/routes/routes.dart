@@ -5,7 +5,7 @@ class Routes {
   static const String passwordGenerationScreen = '/password-generation-screen';
   static const String saveGeneratedPassWordScreen = '/save-generated-password-screen';
 
-  // static const String dashboard = '/dashboard-screen';
-  // static const String bottomNavigationScreen = '/bottom-navigation-screen';
+  static const String dashboard = '/dashboard-screen';
+  static const String bottomNavigationScreen = '/bottom-navigation-screen';
   
 }
