@@ -21,7 +21,7 @@ class PasswordCardWidget extends StatefulWidget {
 }
 
 class _PasswordCardWidgetState extends State<PasswordCardWidget> {
-  bool _isPasswordVisible = false;
+  bool _isPasswordVisible = true;
   @override
   Widget build(BuildContext context) {
     return Dismissible(
