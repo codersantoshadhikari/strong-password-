@@ -242,7 +242,8 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   }
 
   void copyToClipboard() {
-    PasswordGeneratorUtils.copyToClipboard(generatedPassword);
+    PasswordGeneratorUtils.copyToClipboard(generatedPassword,context);
+    
   }
 
   // void savePassword() {

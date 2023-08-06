@@ -1,7 +1,9 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'dart:math';
+import 'package:fast_pw_manager/custom_widgets/snackbar/snackbar.dart';
 import 'package:fast_pw_manager/password_gen/bloc/save_generated_data_bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:fast_pw_manager/function/generate_unique_id.dart';
@@ -41,8 +43,24 @@ class PasswordGeneratorUtils {
     return password;
   }
 
-  static void copyToClipboard(String generatedPassword) {
+  static void copyToClipboard(String generatedPassword,BuildContext context) {
     Clipboard.setData(ClipboardData(text: generatedPassword));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          duration: Duration(seconds: 1),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          behavior: SnackBarBehavior.floating,
+          content: CustomSnackBarMessage(
+              headerText: "Done!",
+              bodyText: "Sucessfully,Copied the Password",
+              backgroundColor: Color(0xFFD9F9E1),
+              bubbleColor: Color(0xFF5FA773),
+textColor: Color(0xFF5FA773),
+              iconToShowInbubble: Icon(
+                Icons.check,
+                color: Color(0xFFFFFFFF),
+              )),
+        ));
     // Show a snackbar or toast message here if needed.
   }
 
@@ -55,6 +73,7 @@ class PasswordGeneratorUtils {
     SaveGeneratedDataBloc bloc,
     int choosedImageIndex,
     String userName,
+    String socialMediaNAme,
   ) {
     if (generatedPassword.isNotEmpty) {
       List<String> category = [];
@@ -79,7 +98,8 @@ class PasswordGeneratorUtils {
           time: DateFormat('hh:mm a').format(DateTime.now()),
           category: "null",
           userName: userName,
-          chosenIndex:choosedImageIndex);
+          chosenIndex:choosedImageIndex,
+          socialMediaName: socialMediaNAme);
       bloc.add(
         SaveNewGeneratedPassword(modelListofSavedPassword: savedData),
       );

@@ -2,15 +2,39 @@ import 'package:fast_pw_manager/custom_widgets/text_field/custom_textfield.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FormFieldWidget extends StatelessWidget {
-  const FormFieldWidget({super.key,required this.userNameController,
-    required this.passwordController,
-    required this.userNameFocusNode,
-    required this.passwordFocusNode,});
-   final TextEditingController userNameController;
+class FormFieldWidget extends StatefulWidget {
+  const FormFieldWidget(
+      {super.key,
+      required this.userNameController,
+      required this.passwordController,
+      required this.userNameFocusNode,
+      required this.passwordFocusNode,
+      required this.socialMediaNameController,
+      required this.socialmediaNameFocusNode,
+      required this.selectedIconIndex});
+  final TextEditingController userNameController;
   final TextEditingController passwordController;
+  final TextEditingController socialMediaNameController;
   final FocusNode userNameFocusNode;
   final FocusNode passwordFocusNode;
+  final FocusNode socialmediaNameFocusNode;
+  final int selectedIconIndex;
+
+  @override
+  State<FormFieldWidget> createState() => _FormFieldWidgetState();
+}
+
+class _FormFieldWidgetState extends State<FormFieldWidget> {
+  List<String> socialMediaName = [
+    'Google',
+    'Facebook',
+    'Instagram',
+    'Twitter',
+    'Figma',
+    'Linkedin',
+    'Github',
+    'Dockers'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +43,9 @@ class FormFieldWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 20.h),
           child: CustomTextFieldWidget(
-            focusNode: userNameFocusNode,
+            focusNode: widget.userNameFocusNode,
             textColor: Colors.black87,
-            controller: userNameController,
+            controller: widget.userNameController,
             inputAction: TextInputAction.next,
             validator: (value) {
               if ((value ?? '').isEmpty) {
@@ -46,9 +70,9 @@ class FormFieldWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 15.h),
           child: CustomTextFieldWidget(
-            focusNode: passwordFocusNode,
+            focusNode: widget.passwordFocusNode,
             textColor: Colors.black87,
-            controller: passwordController,
+            controller: widget.passwordController,
             inputAction: TextInputAction.done,
             validator: (value) {
               if ((value ?? '').isEmpty) {
@@ -70,6 +94,33 @@ class FormFieldWidget extends StatelessWidget {
               Icons.lock,
               color: Colors.tealAccent[700]!.withOpacity(0.3),
             ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 20.h),
+          child: CustomTextFieldWidget(
+            focusNode: widget.socialmediaNameFocusNode,
+            textColor: Colors.black87,
+            controller: widget.socialMediaNameController,
+            inputAction: TextInputAction.next,
+            validator: (value) {
+              if ((value ?? '').isEmpty) {
+                return 'Enter social media name';
+              } else {
+                return null;
+              }
+            },
+            radius: 15.r,
+            borderSide: const BorderSide(width: 2, color: Color(0xFF4FD1D9)),
+            backgroundColor: Colors.white,
+            prefixIcon: Icon(Icons.link,
+                color: Colors.tealAccent[700]!.withOpacity(0.3)),
+            hintText: 'Social Media Name',
+            hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontSize: 15.sp,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w400,
+                ),
           ),
         ),
       ],

@@ -9,6 +9,8 @@ class SaveGeneratedPasswordModel extends Equatable {
   final String category;
   final String userName;
   final int chosenIndex;
+  final String socialMediaName;
+
 
   const SaveGeneratedPasswordModel({
     required this.id,
@@ -18,6 +20,7 @@ class SaveGeneratedPasswordModel extends Equatable {
     required this.category,
     required this.chosenIndex,
     required this.userName,
+    required this.socialMediaName
   });
 
   SaveGeneratedPasswordModel copyWith({
@@ -28,6 +31,7 @@ class SaveGeneratedPasswordModel extends Equatable {
     String? category,
     int? chosenIndex,
     String? userName,
+    String? socialMediaName
   }) {
     return SaveGeneratedPasswordModel(
       id: id ?? this.id,
@@ -37,6 +41,7 @@ class SaveGeneratedPasswordModel extends Equatable {
       category: category ?? this.category,
       chosenIndex: chosenIndex ?? this.chosenIndex,
       userName: userName ?? this.userName,
+      socialMediaName:socialMediaName?? this.socialMediaName
     );
   }
 
@@ -48,7 +53,8 @@ class SaveGeneratedPasswordModel extends Equatable {
       'time': time,
       'category': category,
       'userName': userName,
-      'chosenIndex':chosenIndex
+      'chosenIndex':chosenIndex,
+      'socialMediaName':socialMediaName
     };
   }
 
@@ -61,9 +67,10 @@ class SaveGeneratedPasswordModel extends Equatable {
       category: map['category'] ?? '',
       userName: map['userName'] ?? '',
       chosenIndex: map['chosenIndex'] ?? -1,
+      socialMediaName: map['socialMediaName']?? ''
     );
   }
 
   @override
-  List<Object?> get props => [id, generatedPassword, date, time, category,userName,chosenIndex];
+  List<Object?> get props => [id, generatedPassword, date, time, category,userName,chosenIndex,socialMediaName];
 }

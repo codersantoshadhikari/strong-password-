@@ -41,6 +41,7 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
       direction: DismissDirection.endToStart,
       onDismissed: (direction) {
         final oldSavedPassword = SaveGeneratedPasswordModel(
+          socialMediaName: widget.passwordData.socialMediaName,
           userName: widget.passwordData.userName,
           chosenIndex: widget.passwordData.chosenIndex,
           id: widget.passwordData.id,
@@ -92,6 +93,7 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
                   child: Padding(
                     padding: EdgeInsets.only(left: 15.w),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
@@ -166,6 +168,13 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
                           ],
                         ),
                         SizedBox(height: 20.h),
+                        AutoSizeText(
+                          widget.passwordData.socialMediaName,
+                          presetFontSizes: [15.sp, 12.sp, 10.sp],
+                          maxLines: 1,
+                          style: TextStyle(fontWeight: FontWeight.w400,color: Color.fromRGBO(0, 0, 255, 0.5)),
+                        ),
+                        SizedBox(height: 10.h),
                         Row(
                           children: [
                             Expanded(
@@ -191,6 +200,6 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
   }
 
   void copyToClipboard(String generatedPassword) {
-    PasswordGeneratorUtils.copyToClipboard(generatedPassword);
+    PasswordGeneratorUtils.copyToClipboard(generatedPassword,context);
   }
 }
