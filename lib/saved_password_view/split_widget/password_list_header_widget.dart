@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +6,7 @@ class PasswordListHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Padding(
+    return Padding(
       padding: EdgeInsets.only(top: 120.h, bottom: 50.h),
       child: Row(
         children: [
@@ -16,7 +14,7 @@ class PasswordListHeaderWidget extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child:  Icon(
+            child: Icon(
               Icons.arrow_back,
               size: 30.sp,
             ),
