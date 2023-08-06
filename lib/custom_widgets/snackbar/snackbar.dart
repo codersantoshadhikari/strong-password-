@@ -1,4 +1,3 @@
-
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
@@ -13,7 +12,8 @@ class CustomSnackBarMessage extends StatefulWidget {
       required this.bodyText,
       required this.backgroundColor,
       required this.bubbleColor,
-      required this.iconToShowInbubble,this.textColor});
+      required this.iconToShowInbubble,
+      this.textColor});
   final String headerText;
   final String bodyText;
   final Color backgroundColor;
@@ -33,7 +33,7 @@ class _CustomSnackBarMessageState extends State<CustomSnackBarMessage> {
       children: [
         Container(
           padding: EdgeInsets.all(14.sp),
-          height: 75.h,
+          height: 80.h,
           // width: 500.w,
           decoration: BoxDecoration(
               color: widget.backgroundColor,
@@ -51,7 +51,7 @@ class _CustomSnackBarMessageState extends State<CustomSnackBarMessage> {
                     Text(
                       widget.headerText,
                       style: TextStyle(
-                          color: widget.textColor?? Colors.white,
+                          color: widget.textColor ?? Colors.white,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold),
                     ),
@@ -60,7 +60,9 @@ class _CustomSnackBarMessageState extends State<CustomSnackBarMessage> {
                     ),
                     Text(
                       widget.bodyText,
-                      style: TextStyle(color:widget.textColor?? Colors.white, fontSize: 12.sp),
+                      style: TextStyle(
+                          color: widget.textColor ?? Colors.white,
+                          fontSize: 12.sp),
                     ),
                   ],
                 ),
@@ -87,7 +89,11 @@ class _CustomSnackBarMessageState extends State<CustomSnackBarMessage> {
             color: widget.bubbleColor,
           ),
         ),
-        Positioned(top: -15.h, left: 14.w, child: widget.iconToShowInbubble,)
+        Positioned(
+          top: -15.h,
+          left: 14.w,
+          child: widget.iconToShowInbubble,
+        )
       ],
     );
   }
