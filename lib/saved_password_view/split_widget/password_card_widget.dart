@@ -21,7 +21,7 @@ class PasswordCardWidget extends StatefulWidget {
 }
 
 class _PasswordCardWidgetState extends State<PasswordCardWidget> {
-  bool _isPasswordVisible = false;
+  bool _isPasswordVisible = true;
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -61,7 +61,7 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: SizedBox(
-          height: 190.h,
+          height: 150.h,
           width: double.infinity,
           child: Padding(
             padding: EdgeInsets.all(15.sp),
@@ -182,11 +182,17 @@ class _PasswordCardWidgetState extends State<PasswordCardWidget> {
                           children: [
                             Expanded(
                               flex: 3,
-                              child: Text(widget.passwordData.date),
+                              child: Text(
+                                widget.passwordData.date,
+                                style: TextStyle(fontSize: 12.sp),
+                              ),
                             ),
                             Expanded(
                               flex: 1,
-                              child: Text(widget.passwordData.time),
+                              child: Text(
+                                widget.passwordData.time,
+                                style: TextStyle(fontSize: 12.sp),
+                              ),
                             ),
                           ],
                         ),
