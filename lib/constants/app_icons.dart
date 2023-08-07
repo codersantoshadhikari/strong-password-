@@ -6,6 +6,8 @@ class AppIcons {
   static const String backGroundDecImage = 'assets/png_images/decoration_image_icon.png';
  
 
+///Empty List Image
+  static const String emptyListIcon = 'assets/png_images/empty_list.png';
 
 
   ///svg_icons
