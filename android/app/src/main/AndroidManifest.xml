@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="Fast Pw Manager"
+        android:label="Strong Password Generator"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
