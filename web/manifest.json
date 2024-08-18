@@ -1,6 +1,6 @@
 {
-    "name": "fast_pw_manager",
-    "short_name": "fast_pw_manager",
+    "name": "passwordgen",
+    "short_name": "passwordgen",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
