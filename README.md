@@ -33,4 +33,4 @@ To install and run the Password Generator app, follow these steps:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/password-generator.git
+   git clone [[https://github.com/yourusername/password-generator.git](https://github.com/codersantoshadhikari/strong-password-.git)](https://github.com/codersantoshadhikari/strong-password-)
