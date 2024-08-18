@@ -34,10 +34,3 @@ To install and run the Password Generator app, follow these steps:
 
    ```sh
    git clone https://github.com/yourusername/password-generator.git
-
-
-### download link
-
-https://play.google.com/store/apps/details?id=com.santoshadhikari.flashpasswordmanager
-https://play.google.com/store/apps/details?id=com.santoshadhikari.flashpasswordmanager
-https://play.google.com/store/apps/details?id=com.santoshadhikari.flashpasswordmanager
